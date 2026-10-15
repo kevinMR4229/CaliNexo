@@ -66,23 +66,28 @@ Si la aplicación falla ocasionalmente sería una molestia, pero no supondría u
 **Descripcion:** En esta pantalla Aparece un seguimiento de la actvidad del usuario en los ultimos 7 dias, y luego debajo
 Los distintos cursos ordenados por nivel, apereciendo de primero el que este pasando el usuario mostrando la barra de
 progreso.
-![PantallaInicio.jpg](res/PantallaInicio.jpg)
+![PantallaInicio.png](res/PantallaInicio.png)
 
 ## Boceto 2 — Login
 **Descripcion:** La tipica pantalla de login.
-![PantallaLogin.jpg](res/PantallaLogin.jpg)
+![PantallaLogin.png](res/PantallaLogin.png)
 
 ## Boceto 3 — Ejercicios
 **Descripcion:** En esta pantalla aparece un buscador para encontrar ejercicios individuales por su nombre, luego debajo
 se puede elegir ordenar los ejercicios segun niveles de dificultad o la zona del cuerpo que fortalecen. Si se marca Niveles 
 debajo apareceran los distintos niveles con un desplegable para mostrar los ejercicios que pertenecen a ese nivel. Si elige 
 Zonas apareceran las distintas zonas del cuerpo con un desplegable para mostrar los ejercicios que fortalecen esa zona.
-![PantallaEjercicios.jpg](res/PantallaEjercicios.jpg)
+![PantallaEjercicios.png](res/PantallaEjercicios.png)
 
 ## Boceto 4 — Parques cercanos
 **Descripcion:** En esta pantalla se muestran los parques mas cercanos a la ubicacion del usuario donde es posible hacer calistenia,
 dando informacion sobre cada uno y mostrando la ruta de como llegar.
-![PantallaParques.jpg](res/PantallaParques.jpg)
+![PantallaParques.png](res/PantallaParques.png)
+
+## Boceto 5 — Detalle Ejercicio
+**Descripcion:** En esta pantalla se muestra una foto de ejemplo del ejercicio. Debajo muestra las zonas del cuerpo que trabaja,
+ luego los detalles de como se realiza correctamente dicho ejercicio y por ultimo el boton para empezar el ejercicio.
+![PantallaDetalleEjercicio.png](res/PantallaDetalleEjercicio.png)
 
 # 7 · Qué datos guarda la app
 
