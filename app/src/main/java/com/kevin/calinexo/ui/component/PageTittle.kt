@@ -1,6 +1,6 @@
 package com.kevin.calinexo.ui.component
 
-import androidx.appcompat.R
+import com.kevin.testapplication.R
 import androidx.compose.material3.Icon
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -28,20 +29,22 @@ data class PageTittleData(
 fun pageTittle(data: PageTittleData, modifier: Modifier = Modifier){
 
     Row(modifier = modifier
-        .fillMaxWidth()) {
+        .fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically) {
 
         //Flecha atras
         IconButton(
             onClick = data.onIconoIzq,
-            modifier = modifier) {
+            modifier = Modifier) {
             Icon(
                 painter = painterResource(data.arrowBack),
-                contentDescription = "flecha atras"
+                contentDescription = "flecha atras",
+                tint = Color.White
             )
         }
 
         //Espacio
-        Spacer(modifier = modifier.weight(1f))
+        Spacer(modifier = Modifier.weight(1f))
 
         //Nombre
         Text(
@@ -53,15 +56,16 @@ fun pageTittle(data: PageTittleData, modifier: Modifier = Modifier){
         )
 
         //Espacio
-        Spacer(modifier = modifier.weight(1f))
+        Spacer(modifier = Modifier.weight(1f))
 
         //Me gusta
         IconButton(
             onClick = data.onIconoDer,
-            modifier = modifier) {
+            modifier = Modifier) {
             Icon(
                 painter = painterResource(data.heart),
-                contentDescription = "Corazón"
+                contentDescription = "Corazón",
+                tint = Color.White
             )
         }
     }
@@ -76,7 +80,7 @@ fun pageTittlePreview(){
         data = PageTittleData(
             pageTittle = "dominadas",
             arrowBack = R.drawable.arrow_back,
-            heart = R.drawable.ic_favorite,
+            heart = R.drawable.ic_favorite_border,
             onIconoIzq = {},
             onIconoDer = {}
         ),

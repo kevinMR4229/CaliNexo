@@ -49,7 +49,7 @@ fun header(data: HeaderData, modifier: Modifier = Modifier) {
 
         //Espacio Pequeño
         Spacer(
-            modifier = modifier.width(8.dp)
+            modifier = Modifier.width(8.dp)
         )
 
         // Nombre CaliNexo
