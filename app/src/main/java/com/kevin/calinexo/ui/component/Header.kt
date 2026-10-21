@@ -25,11 +25,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 
 
+data class HeaderData(
+    val logo: Int,
+    val nombre: String
+)
+
 @Composable
-fun header() {
+fun header(data: HeaderData, modifier: Modifier = Modifier) {
 
     Row(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .background(color = HeaderBackground)
             .height(64.dp)
@@ -38,19 +43,19 @@ fun header() {
     ) {
         // Logo
         Image(
-            painter = painterResource(R.drawable.logo_mejorado),
+            painter = painterResource(data.logo),
             contentDescription = "Logo de la app",
-            modifier = Modifier.size(52.dp)
+            modifier = modifier.size(52.dp)
         )
 
         //Espacio Pequeño
         Spacer(
-            modifier = Modifier.width(8.dp)
+            modifier = modifier.width(8.dp)
         )
 
         // Nombre CaliNexo
         Text(
-            text = stringResource(R.string.app_name),
+            text = data.nombre,
             color = Color.White,
             fontSize = 18.sp,
             fontWeight = FontWeight.Bold,
@@ -75,5 +80,11 @@ fun header() {
 @Preview
 @Composable
 fun headerPreview(){
-    header()
+    header(
+        data = HeaderData(
+            logo = R.drawable.logo_mejorado,
+            nombre = "CaliNexo"
+        ),
+        modifier = Modifier
+    )
 }
