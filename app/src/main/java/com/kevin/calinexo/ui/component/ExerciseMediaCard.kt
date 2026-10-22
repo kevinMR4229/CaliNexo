@@ -23,6 +23,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.kevin.calinexo.ui.theme.LettersBlackBackground
+import com.kevin.calinexo.ui.theme.LogoInfoChipBackground
 import com.kevin.testapplication.R
 
 
@@ -71,56 +73,45 @@ fun ExerciseMediaCard(data: ExerciseMediaCarddata, modifier: Modifier = Modifier
 
 
         //Tiempo
-        Surface(  //creo el cintenedor del texto
-            modifier = modifier
+        LogoInfoChip(
+            LogoInfoChipData(
+                text = data.time.toString() + " seg por serie",
+                textColor = LettersBlackBackground,
+                boxColor = LogoInfoChipBackground,
+                icon = R.drawable.clock,
+                iconColor = LogoInfoChipBackground
+            ),
+            modifier = Modifier
                 .align(Alignment.BottomStart)
-                .padding(8.dp),
-            color = Color.Gray,
-            shape = RoundedCornerShape(20)
-        ) {
-
-            Row(modifier = Modifier,
-                verticalAlignment = Alignment.CenterVertically) {
-                Icon(
-                    painter = painterResource(R.drawable.clock),
-                    contentDescription = "icono",
-                    tint = Color.White,
-
-                )
-
-                Spacer(
-                    modifier = Modifier.width(1.dp)
-                )
-
-                Text(
-                    text = data.time.toString() + " segundos por serie",
-                    color = Color.White,
-                    fontSize = 10.sp,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier.padding(
-                        horizontal = 10.dp,
-                        vertical = 4.dp
-                    )
-                )
-            }
-
-        }
+        )
 
 
 
         //Fuerza
+        LogoInfoChip(
+            LogoInfoChipData(
+                text = data.strengh,
+                textColor = LettersBlackBackground,
+                boxColor = LogoInfoChipBackground,
+                icon = R.drawable.lightning,
+                iconColor = LogoInfoChipBackground
+            ),
+            modifier = Modifier
+                .align(Alignment.BottomEnd)
+        )
     }
 }
 
 @Preview
 @Composable
-fun exerciseMediaCardPreview(){
+fun ExerciseMediaCardPreview(){
     ExerciseMediaCard(
         data = ExerciseMediaCarddata(
             image = R.drawable.imagen_dominadas_prueba,
             level = "Intermedio",
             time = 34,
             strengh = "Fuerza base"
-        )
+        ),
+        modifier = Modifier
     )
 }

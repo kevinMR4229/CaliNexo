@@ -11,3 +11,6 @@ val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
 
 val HeaderBackground = Color(0xFF101117)
+val LettersBlackBackground = Color(0xFF111111)
+val LettersRedBackground = Color(0xFF101117)
+val LogoInfoChipBackground = Color.Gray

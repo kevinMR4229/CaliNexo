@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="512"
+    android:viewportHeight="512">
+
+    <path
+        android:name="rayo"
+        android:fillColor="#FFCC00"
+        android:strokeColor="#171717"
+        android:strokeWidth="12"
+        android:strokeLineJoin="round"
+        android:pathData="M 290,30 L 110,280 L 240,280 L 210,480 L 405,210 L 275,210 Z" />
+</vector>
