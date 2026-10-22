@@ -10,7 +10,15 @@ val Purple40 = Color(0xFF6650a4)
 val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
 
-val HeaderBackground = Color(0xFF101117)
-val LettersBlackBackground = Color(0xFF111111)
+val MainColor = Color(0xFF101117)
+val SecondaryColor = Color(0xFF1B1C23)
+val ButtonColor = Color.Red
+
+//Color Letras
+val LettersBlackBackground = Color.White
 val LettersRedBackground = Color(0xFF101117)
-val LogoInfoChipBackground = Color.Gray
+val LogoInfoChipBackground = Color(0xFF4A4A52)
+
+
+//Pantalla Info Ejercicio
+val ClockColor = Color.White

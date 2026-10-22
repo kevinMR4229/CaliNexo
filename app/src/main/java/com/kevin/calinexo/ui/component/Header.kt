@@ -16,12 +16,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
-import com.kevin.calinexo.ui.theme.HeaderBackground
 import com.kevin.testapplication.R
 import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.kevin.calinexo.ui.theme.MainColor
 
 
 data class HeaderData(
@@ -35,7 +35,7 @@ fun header(data: HeaderData, modifier: Modifier = Modifier) {
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .background(color = HeaderBackground)
+            .background(color = MainColor)
             .height(64.dp)
             .padding(horizontal = 6.dp),
         verticalAlignment = Alignment.CenterVertically
