@@ -18,9 +18,9 @@ data class InfoChipData(
     val text: String,
     val textColor: Color,
     val boxColor: Color,
-    val icon: Int? = null,
-    val iconColor: Color?,
-    val cornerRound: Int
+    //val icon: Int? = null,
+    //val iconColor: Color?,
+    //val cornerRound: Int
 )
 
 @Composable
@@ -29,13 +29,13 @@ fun InfoChip(data: InfoChipData, modifier: Modifier = Modifier) {
     Surface(  //creo el cintenedor del texto
         modifier = modifier,
         color = data.boxColor,
-        shape = RoundedCornerShape(data.cornerRound)
+        shape = RoundedCornerShape(50)
     ) {
-        if (data.icon != null)
-        Icon(
-            painter = painterResource(data.icon),
-            contentDescription = "icono",
-            tint = data.iconColor)
+        //if (data.icon != null)
+        //Icon(
+        //    painter = painterResource(data.icon),
+        //    contentDescription = "icono",
+        //    tint = data.iconColor)
 
         Text(
             text = data.text,
