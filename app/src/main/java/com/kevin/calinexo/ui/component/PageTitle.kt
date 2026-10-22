@@ -17,7 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 
 
-data class PageTittleData(
+data class PageTitleData(
     val pageTittle: String,
     val arrowBack: Int,
     val heart: Int,
@@ -26,7 +26,7 @@ data class PageTittleData(
 )
 
 @Composable
-fun pageTittle(data: PageTittleData, modifier: Modifier = Modifier){
+fun pageTitle(data: PageTitleData, modifier: Modifier = Modifier){
 
     Row(modifier = modifier
         .fillMaxWidth(),
@@ -74,10 +74,10 @@ fun pageTittle(data: PageTittleData, modifier: Modifier = Modifier){
 
 @Preview
 @Composable
-fun pageTittlePreview(){
+fun pageTitlePreview(){
 
-    pageTittle(
-        data = PageTittleData(
+    pageTitle(
+        data = PageTitleData(
             pageTittle = "dominadas",
             arrowBack = R.drawable.arrow_back,
             heart = R.drawable.ic_favorite_border,
