@@ -44,6 +44,8 @@ fun ExerciseMediaCard(data: ExerciseMediaCarddata, modifier: Modifier = Modifier
 
         //Imagen
         Image(
+            modifier = Modifier
+                .fillMaxWidth(),
             painter = painterResource(data.image),
             contentDescription = "Imagen",
             contentScale = ContentScale.Crop
