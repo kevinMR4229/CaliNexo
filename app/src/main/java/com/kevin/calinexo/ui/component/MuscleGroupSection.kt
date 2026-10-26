@@ -3,18 +3,26 @@ package com.kevin.calinexo.ui.component
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.ui.Modifier
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kevin.calinexo.ui.theme.LettersBlackBackground
-import com.kevin.calinexo.ui.theme.SecondaryColor
+import com.kevin.calinexo.ui.theme.TertiaryColor
 import com.kevin.testapplication.R
+
+
+enum class Eford(
+    LOW
+)
+
+data class Muscle(
+    val name: String,
+    val efford: Eford
+)
 
 data class MuscleGroupSectionData(
     val title: String,
@@ -38,7 +46,7 @@ fun MuscleGroupSection(data: MuscleGroupSectionData, modifier: Modifier = Modifi
                     InfoChipData(
                         text = muscle,
                         textColor = LettersBlackBackground,
-                        boxColor = SecondaryColor,
+                        boxColor = TertiaryColor,
                         icon = R.drawable.circlepx,
                         roundedCorner = 20
 

@@ -10,9 +10,14 @@ val Purple40 = Color(0xFF6650a4)
 val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
 
-val PrimaryColor = Color(0xFF101117)
-val SecondaryColor = Color(0xFF1B1C23)
-val ButtonColor = Color.Red
+
+
+val PrimaryColor = Color(0xFFEE0F0F)
+val SecondaryColor = Color(0xFF242424)
+val TertiaryColor = Color(0xFFA1A1AA)
+
+
+
 
 //Color Letras
 val LettersBlackBackground = Color.White

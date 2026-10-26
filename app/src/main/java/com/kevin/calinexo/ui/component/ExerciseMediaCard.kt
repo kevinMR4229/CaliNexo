@@ -15,7 +15,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kevin.calinexo.ui.theme.ClockColor
 import com.kevin.calinexo.ui.theme.LettersBlackBackground
-import com.kevin.calinexo.ui.theme.LogoInfoChipBackground
+import com.kevin.calinexo.ui.theme.PrimaryColor
+import com.kevin.calinexo.ui.theme.TertiaryColor
 import com.kevin.testapplication.R
 
 
@@ -51,7 +52,7 @@ fun ExerciseMediaCard(data: ExerciseMediaCarddata, modifier: Modifier = Modifier
         InfoChip(data = InfoChipData(
             text = "Nivel " + data.level,
             textColor = Color.Black,
-            boxColor = Color.Red,
+            boxColor = PrimaryColor,
             roundedCorner = 50
             //icon
         ),
@@ -70,7 +71,7 @@ fun ExerciseMediaCard(data: ExerciseMediaCarddata, modifier: Modifier = Modifier
             InfoChipData(
                 text = data.time.toString() + " seg por serie",
                 textColor = LettersBlackBackground,
-                boxColor = LogoInfoChipBackground,
+                boxColor = TertiaryColor,
                 icon = R.drawable.clock,
                 iconColor = ClockColor,
                 roundedCorner = 20
@@ -87,7 +88,7 @@ fun ExerciseMediaCard(data: ExerciseMediaCarddata, modifier: Modifier = Modifier
             InfoChipData(
                 text = data.strengh,
                 textColor = LettersBlackBackground,
-                boxColor = LogoInfoChipBackground,
+                boxColor = TertiaryColor,
                 icon = R.drawable.lightning,
                 iconColor = Color.White,
                 roundedCorner = 20

@@ -1,6 +1,5 @@
 package com.kevin.calinexo.ui.component
 
-import android.graphics.drawable.Icon
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -17,7 +16,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.kevin.calinexo.ui.theme.ButtonColor
+import com.kevin.calinexo.ui.theme.PrimaryColor
 import com.kevin.calinexo.ui.theme.LettersBlackBackground
 import com.kevin.testapplication.R
 
@@ -92,7 +91,7 @@ fun ButtonAppPreview(){
         data = ButtonData(
             text = "Entrar",
             textColor = LettersBlackBackground,
-            backgroundColor = ButtonColor,
+            backgroundColor = PrimaryColor,
             endIcon = R.drawable.arrow_back
         )
     )
