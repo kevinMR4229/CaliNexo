@@ -60,7 +60,7 @@ fun ButtonApp(data: ButtonData, modifier: Modifier = Modifier){
         Text(
             text = data.text,
             color = data.textColor,
-            fontSize = 10.sp,
+            fontSize = 15.sp,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(
                 horizontal = 10.dp,

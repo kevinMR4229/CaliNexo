@@ -2,6 +2,7 @@ package com.kevin.calinexo.ui.component
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.ui.graphics.Color
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -23,7 +24,8 @@ data class InfoChipData(
     val textColor: Color,
     val boxColor: Color,
     val icon: Int? = null,
-    val iconColor: Color = Color.White
+    val iconColor: Color = Color.White,
+    val roundedCorner: Int
 )
 
 @Composable
@@ -32,7 +34,7 @@ fun InfoChip(data: InfoChipData, modifier: Modifier = Modifier) {
     Surface(  //creo el contenedor del texto
         modifier = modifier,
         color = data.boxColor,
-        shape = RoundedCornerShape(50)
+        shape = RoundedCornerShape(data.roundedCorner)
     ) {
 
         Row(
@@ -48,7 +50,7 @@ fun InfoChip(data: InfoChipData, modifier: Modifier = Modifier) {
                 )
 
                 Spacer(
-                    modifier = Modifier
+                    modifier = Modifier.height(2.dp)
                 )
             }
 

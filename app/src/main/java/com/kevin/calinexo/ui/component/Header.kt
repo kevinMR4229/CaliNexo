@@ -21,7 +21,7 @@ import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.kevin.calinexo.ui.theme.MainColor
+import com.kevin.calinexo.ui.theme.PrimaryColor
 
 
 data class HeaderData(
@@ -35,7 +35,7 @@ fun header(data: HeaderData, modifier: Modifier = Modifier) {
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .background(color = MainColor)
+            .background(color = PrimaryColor)
             .height(64.dp)
             .padding(horizontal = 6.dp),
         verticalAlignment = Alignment.CenterVertically

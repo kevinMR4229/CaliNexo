@@ -52,6 +52,7 @@ fun ExerciseMediaCard(data: ExerciseMediaCarddata, modifier: Modifier = Modifier
             text = "Nivel " + data.level,
             textColor = Color.Black,
             boxColor = Color.Red,
+            roundedCorner = 50
             //icon
         ),
             modifier = modifier
@@ -71,7 +72,8 @@ fun ExerciseMediaCard(data: ExerciseMediaCarddata, modifier: Modifier = Modifier
                 textColor = LettersBlackBackground,
                 boxColor = LogoInfoChipBackground,
                 icon = R.drawable.clock,
-                iconColor = ClockColor
+                iconColor = ClockColor,
+                roundedCorner = 20
             ),
             modifier = Modifier
                 .align(Alignment.BottomStart)
@@ -87,7 +89,8 @@ fun ExerciseMediaCard(data: ExerciseMediaCarddata, modifier: Modifier = Modifier
                 textColor = LettersBlackBackground,
                 boxColor = LogoInfoChipBackground,
                 icon = R.drawable.lightning,
-                iconColor = Color.White
+                iconColor = Color.White,
+                roundedCorner = 20
             ),
             modifier = Modifier
                 .align(Alignment.BottomEnd)
