@@ -63,7 +63,7 @@ fun header(data: HeaderData, modifier: Modifier = Modifier) {
 
         //Espacio
         Spacer(
-            modifier = Modifier.weight(1f) //Hace que se rellene todo el espacio sin usar de la row. En este caso empuja al icono de usuario al borde de la row
+            modifier = Modifier.weight(1f)
         )
 
         // Icono de usuario
