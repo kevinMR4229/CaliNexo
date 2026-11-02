@@ -25,7 +25,8 @@ data class ExpandableCategoryData(
     val text: String,
     val textColor: Color,
     val icon: Int,
-    val iconColor: Color
+    val iconColor: Color,
+    val onClick: () -> Unit
 )
 
 
@@ -75,7 +76,8 @@ fun ExpandableCategoryPreview() {
             text = "Principiante",
             textColor = LettersBlackBackground,
             icon = R.drawable.outline_arrow_forward_ios_24,
-            iconColor = Color.White
+            iconColor = Color.White,
+            onClick = {}
         ),
         modifier = Modifier.background(
             color = SecondaryColor,
