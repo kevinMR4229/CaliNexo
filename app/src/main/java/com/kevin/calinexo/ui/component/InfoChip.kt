@@ -1,11 +1,13 @@
 package com.kevin.calinexo.ui.component
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.ui.graphics.Color
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
@@ -38,19 +40,17 @@ fun InfoChip(data: InfoChipData, modifier: Modifier = Modifier) {
     ) {
 
         Row(
-            modifier = Modifier,
-            verticalAlignment = Alignment.CenterVertically
+            modifier = Modifier
+                .padding(start = 2.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(-4.dp)
         ){
             if (data.icon != null){
                 Icon(
                     painter = painterResource(data.icon),
                     contentDescription = "icono",
                     tint = data.iconColor,
-                    modifier = Modifier.size(24.dp)
-                )
-
-                Spacer(
-                    modifier = Modifier.height(2.dp)
+                    modifier = Modifier.size(15.dp)
                 )
             }
 

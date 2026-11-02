@@ -1,5 +1,6 @@
 package com.kevin.calinexo.ui.component
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -15,11 +16,12 @@ import com.kevin.calinexo.ui.theme.HighPriority
 import com.kevin.calinexo.ui.theme.LettersBlackBackground
 import com.kevin.calinexo.ui.theme.LowPriority
 import com.kevin.calinexo.ui.theme.MediumPriority
+import com.kevin.calinexo.ui.theme.SecondaryColor
 import com.kevin.calinexo.ui.theme.TertiaryColor
 import com.kevin.testapplication.R
 
 
-enum class Eford(val color: Color){
+enum class Effort(val color: Color){
     LOW(LowPriority),
     MEDIUM(MediumPriority),
     HIGH(HighPriority);
@@ -29,7 +31,7 @@ enum class Eford(val color: Color){
 
 data class Muscle(
     val name: String,
-    val efford: Eford
+    val effort: Effort
 )
 
 data class MuscleGroupSectionData(
@@ -40,7 +42,7 @@ data class MuscleGroupSectionData(
 
 @Composable
 fun MuscleGroupSection(data: MuscleGroupSectionData, modifier: Modifier = Modifier) {
-    Column() {
+    Column(modifier = modifier) {
         Text(
             text = data.title,
             color = LettersBlackBackground,
@@ -54,9 +56,9 @@ fun MuscleGroupSection(data: MuscleGroupSectionData, modifier: Modifier = Modifi
                     InfoChipData(
                         text = muscle.name,
                         textColor = LettersBlackBackground,
-                        boxColor = TertiaryColor,
-                        icon = R.drawable.circlepx,
-                        iconColor = muscle.efford.color,
+                        boxColor = SecondaryColor,
+                        icon = R.drawable.full_circle_24,
+                        iconColor = muscle.effort.color,
                         roundedCorner = 20
 
                     ),
@@ -83,12 +85,18 @@ fun MuscleGroupSectionPreview(){
     MuscleGroupSection(data = MuscleGroupSectionData(
         title = "Musculos Principales",
         muscles = listOf(Muscle(
-            name = "Bisep",
-            efford = Eford.HIGH
+            name = "Biceps",
+            effort = Effort.HIGH
         ), Muscle(
             name = "Core",
-            efford = Eford.MEDIUM
-        ))
+            effort = Effort.MEDIUM
+        ),
+            Muscle(
+                name = "Piernas",
+                effort = Effort.LOW
+            ))
     ),
-        modifier = Modifier)
+        modifier = Modifier.background(
+            Color.Black
+        ))
 }

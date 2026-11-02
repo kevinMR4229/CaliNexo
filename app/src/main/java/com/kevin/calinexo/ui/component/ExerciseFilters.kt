@@ -11,6 +11,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kevin.calinexo.ui.theme.LettersBlackBackground
+import com.kevin.calinexo.ui.theme.PrimaryColor
 import com.kevin.calinexo.ui.theme.SecondaryColor
 
 data class FilterOption(
@@ -20,8 +21,9 @@ data class FilterOption(
 
 data class ExerciseFiltersData(
     val filters: List<FilterOption>,
+    val selected: FilterOption,
     val backgroundColor: Color
-    )
+)
 
 
 @Composable
@@ -38,14 +40,29 @@ fun ExerciseFilters(data: ExerciseFiltersData, modifier: Modifier = Modifier) {
             modifier = Modifier.width(4.dp)
         )
 
-        for (filter in data.filters){
+        for (filter in data.filters) {
 
-            InfoChip(InfoChipData(
-                text = filter.name,
-                textColor = LettersBlackBackground,
-                boxColor = SecondaryColor,
-                roundedCorner = 50
-            ))
+            if (filter == data.selected) {
+                InfoChip(
+                    InfoChipData(
+                        text = filter.name,
+                        textColor = LettersBlackBackground,
+                        boxColor = PrimaryColor,
+                        roundedCorner = 50
+                    )
+                )
+            } else {
+                InfoChip(
+                    InfoChipData(
+                        text = filter.name,
+                        textColor = LettersBlackBackground,
+                        boxColor = SecondaryColor,
+                        roundedCorner = 50
+                    )
+                )
+            }
+
+
 
             Spacer(
                 modifier = Modifier.width(4.dp)
@@ -57,19 +74,26 @@ fun ExerciseFilters(data: ExerciseFiltersData, modifier: Modifier = Modifier) {
 
 @Preview
 @Composable
-fun ExerciseFiltersPreview(){
+fun ExerciseFiltersPreview() {
+    val list: List<FilterOption> = listOf(
+        FilterOption(
+            name = "Nivel",
+            onClick = {}
+        ),
+        FilterOption(
+            name = "Zona",
+            onClick = {}
+        ),
+        FilterOption(
+            name = "Zona",
+            onClick = {}
+        )
+    )
+
     ExerciseFilters(
         ExerciseFiltersData(
-            filters = listOf(
-                FilterOption(
-                    name = "Nivel",
-                    onClick = {}
-                ),
-                FilterOption(
-                    name = "Zona",
-                    onClick = {}
-                )
-            ),
+            filters = list,
+            selected = list.get(0),
             backgroundColor = SecondaryColor
         ),
         modifier = Modifier
