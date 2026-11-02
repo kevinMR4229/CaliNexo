@@ -1,13 +1,17 @@
 package com.kevin.calinexo.ui.component
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.kevin.testapplication.R
 
 data class SearchBarData(
@@ -21,12 +25,16 @@ data class SearchBarData(
 fun SearchBar(data: SearchBarData, modifier: Modifier = Modifier) {
 
     TextField(
-        value = "",
+        value = data.text,
         onValueChange = data.onTextChange,
-        modifier = modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxWidth()
+            .background(
+                color = Color.White,
+                shape = RoundedCornerShape(50.dp)
+            ),
 
         placeholder = {
-            Text(data.text)
+            Text("Buscar Ejercicio")
         },
 
         leadingIcon = {
@@ -44,7 +52,7 @@ fun SearchBar(data: SearchBarData, modifier: Modifier = Modifier) {
 fun SearchBarPreview(){
     SearchBar(data = SearchBarData(
         icon = R.drawable.search,
-        text = "Busacar Ejercicio",
+        text = "",
         onTextChange = {}
     ),
         modifier = Modifier)

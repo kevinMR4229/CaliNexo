@@ -11,7 +11,7 @@ val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
 
 
-
+//Colores principales
 val PrimaryColor = Color(0xFFEE0F0F)
 val SecondaryColor = Color(0xFF242424)
 val TertiaryColor = Color(0xFFA1A1AA)
@@ -23,6 +23,14 @@ val TertiaryColor = Color(0xFFA1A1AA)
 val LettersBlackBackground = Color.White
 val LettersRedBackground = Color(0xFF101117)
 val LogoInfoChipBackground = Color(0xFF4A4A52)
+
+
+
+
+//Colores Preioridades
+val LowPriority = Color.Gray
+val MediumPriority = Color.Yellow
+val HighPriority = Color.Red
 
 
 //Pantalla Info Ejercicio
