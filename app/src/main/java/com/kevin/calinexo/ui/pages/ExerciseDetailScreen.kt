@@ -39,7 +39,7 @@ import com.kevin.calinexo.ui.theme.PrimaryColor
 
 
 @Composable
-fun ExerciseDetailScreen(){
+fun ExerciseDetailScreen() {
 
     Scaffold(
         containerColor = BackgroundColor,
@@ -138,9 +138,13 @@ fun ExerciseDetailScreen(){
             }
 
             item {
-                InstructionStepZone(data = InstructionStepZoneData(
-                    list = Seeder.
-                ))
+                InstructionStepZone(
+                    data = InstructionStepZoneData(
+                        list = Seeder.sendInstructionStepCards()
+                    ),
+                    modifier = Modifier
+                        .padding(horizontal = 20.dp)
+                )
             }
 
 
@@ -170,6 +174,6 @@ fun ExerciseDetailScreen(){
 
 @Preview
 @Composable
-fun ExerciseDetailScreenPreview(){
+fun ExerciseDetailScreenPreview() {
     ExerciseDetailScreen()
 }

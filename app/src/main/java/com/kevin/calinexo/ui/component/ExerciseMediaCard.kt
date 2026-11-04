@@ -76,7 +76,7 @@ fun ExerciseMediaCard(data: ExerciseMediaCarddata, modifier: Modifier = Modifier
             InfoChipData(
                 text = data.time.toString() + " seg por serie",
                 textColor = LettersBlackBackground,
-                boxColor = SecondaryColor,
+                boxColor = TertiaryColor,
                 icon = R.drawable.clock,
                 iconColor = ClockColor,
                 roundedCorner = 20
@@ -93,7 +93,7 @@ fun ExerciseMediaCard(data: ExerciseMediaCarddata, modifier: Modifier = Modifier
             InfoChipData(
                 text = data.strengh,
                 textColor = LettersBlackBackground,
-                boxColor = SecondaryColor,
+                boxColor = TertiaryColor,
                 icon = R.drawable.lightning,
                 iconColor = Color.White,
                 roundedCorner = 20
