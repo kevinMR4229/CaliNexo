@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.ui.Modifier
@@ -21,7 +22,7 @@ import com.kevin.calinexo.ui.theme.TertiaryColor
 import com.kevin.testapplication.R
 
 
-enum class Effort(val color: Color){
+enum class Effort(val color: Color) {
     LOW(LowPriority),
     MEDIUM(MediumPriority),
     HIGH(HighPriority);
@@ -49,6 +50,9 @@ fun MuscleGroupSection(data: MuscleGroupSectionData, modifier: Modifier = Modifi
             style = MaterialTheme.typography.bodyMedium
         )
 
+        Spacer(
+            modifier = Modifier.height(4.dp)
+        )
 
         Row() {
             for (muscle in data.muscles) {
@@ -79,24 +83,28 @@ fun MuscleGroupSection(data: MuscleGroupSectionData, modifier: Modifier = Modifi
 
 @Preview
 @Composable
-fun MuscleGroupSectionPreview(){
+fun MuscleGroupSectionPreview() {
 
 
-    MuscleGroupSection(data = MuscleGroupSectionData(
-        title = "Musculos Principales",
-        muscles = listOf(Muscle(
-            name = "Biceps",
-            effort = Effort.HIGH
-        ), Muscle(
-            name = "Core",
-            effort = Effort.MEDIUM
+    MuscleGroupSection(
+        data = MuscleGroupSectionData(
+            title = "Musculos Principales",
+            muscles = listOf(
+                Muscle(
+                    name = "Biceps",
+                    effort = Effort.HIGH
+                ), Muscle(
+                    name = "Core",
+                    effort = Effort.MEDIUM
+                ),
+                Muscle(
+                    name = "Piernas",
+                    effort = Effort.LOW
+                )
+            )
         ),
-            Muscle(
-                name = "Piernas",
-                effort = Effort.LOW
-            ))
-    ),
         modifier = Modifier.background(
             Color.Black
-        ))
+        )
+    )
 }

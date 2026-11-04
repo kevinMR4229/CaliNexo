@@ -21,6 +21,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.material3.MaterialTheme
+import com.kevin.calinexo.ui.theme.SecondaryColor
 
 
 data class InstructionStepCardData(
@@ -109,7 +110,7 @@ fun InstructionStepCardPreview() {
             titleColor = Color.White,
             description = "Sujetate de la barraiygihboigiftiuk bklj njhbviuy fgliuijkk iuh iboiilkj iujkjnl oñnjjnlknlknoljñk iuhojlni ihlijnñl",
             descriptionColor = Color.White,
-            cardColor = TertiaryColor
+            cardColor = SecondaryColor
         ),
         modifier = Modifier
     )
