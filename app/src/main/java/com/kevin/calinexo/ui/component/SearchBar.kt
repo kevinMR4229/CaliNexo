@@ -27,11 +27,8 @@ fun SearchBar(data: SearchBarData, modifier: Modifier = Modifier) {
     TextField(
         value = data.text,
         onValueChange = data.onTextChange,
-        modifier = modifier.fillMaxWidth()
-            .background(
-                color = Color.White,
-                shape = RoundedCornerShape(50.dp)
-            ),
+        modifier = modifier
+            .fillMaxWidth(),
 
         placeholder = {
             Text("Buscar Ejercicio")

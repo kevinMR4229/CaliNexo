@@ -1,10 +1,10 @@
 package com.kevin.calinexo.ui.pages
 
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -52,116 +52,96 @@ fun ExerciseDetailScreen() {
         }
     ) { innerPadding ->
 
-        LazyColumn(
+        Column(
             modifier = Modifier.padding(innerPadding)
         ) {
-            item {
-                pageTitle(
-                    data = PageTitleData(
-                        pageTittle = "Dominadas",
-                        arrowBack = R.drawable.arrow_back,
-                        heart = R.drawable.ic_favorite_border,
-                        onIconoIzq = {},
-                        onIconoDer = {}
-                    ),
-                    modifier = Modifier
-                        .padding(bottom = 5.dp)
-                )
-            }
+            pageTitle(
+                data = PageTitleData(
+                    pageTittle = "Dominadas",
+                    arrowBack = R.drawable.arrow_back,
+                    heart = R.drawable.ic_favorite_border,
+                    onIconoIzq = {},
+                    onIconoDer = {}
+                ),
+                modifier = Modifier
+                    .padding(bottom = 5.dp)
+            )
 
-            item {
-                ExerciseMediaCard(
-                    data = ExerciseMediaCarddata(
-                        image = R.drawable.imagen_dominadas_prueba,
-                        level = "Intermedio",
-                        time = 34,
-                        strengh = "Fuerza base"
-                    ),
-                    modifier = Modifier
-                        .padding(horizontal = 20.dp)
-                )
-            }
+            ExerciseMediaCard(
+                data = ExerciseMediaCarddata(
+                    image = R.drawable.imagen_dominadas_prueba,
+                    level = "Intermedio",
+                    time = 34,
+                    strengh = "Fuerza base"
+                ),
+                modifier = Modifier
+                    .padding(horizontal = 20.dp)
+            )
 
-            item {
-                Spacer(
-                    modifier = Modifier.height(16.dp)
-                )
-            }
+            Spacer(
+                modifier = Modifier.height(16.dp)
+            )
 
-            item {
-                MuscleGroupSection(
-                    data = MuscleGroupSectionData(
-                        title = "Musculos Principales",
-                        muscles = listOf(
-                            Muscle(
-                                name = "Biceps",
-                                effort = Effort.HIGH
-                            ), Muscle(
-                                name = "Core",
-                                effort = Effort.MEDIUM
-                            ),
-                            Muscle(
-                                name = "Piernas",
-                                effort = Effort.LOW
-                            )
+            MuscleGroupSection(
+                data = MuscleGroupSectionData(
+                    title = "Musculos Principales",
+                    muscles = listOf(
+                        Muscle(
+                            name = "Biceps",
+                            effort = Effort.HIGH
+                        ), Muscle(
+                            name = "Core",
+                            effort = Effort.MEDIUM
+                        ),
+                        Muscle(
+                            name = "Piernas",
+                            effort = Effort.LOW
                         )
-                    ),
-                    modifier = Modifier
-                        .padding(start = 20.dp, top = 5.dp)
-                )
-            }
+                    )
+                ),
+                modifier = Modifier
+                    .padding(start = 20.dp, top = 5.dp)
+            )
 
-            item {
-                Spacer(
-                    modifier = Modifier.height(20.dp)
-                )
-            }
+            Spacer(
+                modifier = Modifier.height(20.dp)
+            )
 
-            item {
-                Text(
-                    modifier = Modifier
-                        .padding(start = 20.dp),
-                    text = "Como realizarlo",
-                    color = LettersBlackBackground,
-                    style = MaterialTheme.typography.bodyMedium
-                )
-            }
+            Text(
+                modifier = Modifier
+                    .padding(start = 20.dp),
+                text = "Como realizarlo",
+                color = LettersBlackBackground,
+                style = MaterialTheme.typography.bodyMedium
+            )
 
-            item {
-                Spacer(
-                    modifier = Modifier.height(16.dp)
-                )
-            }
+            Spacer(
+                modifier = Modifier.height(16.dp)
+            )
 
-            item {
-                InstructionStepZone(
-                    data = InstructionStepZoneData(
-                        list = Seeder.sendInstructionStepCards()
-                    ),
-                    modifier = Modifier
-                        .padding(horizontal = 20.dp)
-                )
-            }
+            InstructionStepZone(
+                data = InstructionStepZoneData(
+                    list = Seeder.sendInstructionStepCards()
+                ),
+                modifier = Modifier
+                    .padding(horizontal = 20.dp)
+            )
 
 
-            item {
-                Spacer(
-                    modifier = Modifier.height(16.dp)
-                )
-            }
+            Spacer(
+                modifier = Modifier.height(16.dp)
+            )
 
-            item {
-                ButtonApp(
-                    data = ButtonData(
-                        text = "Entrar",
-                        textColor = LettersBlackBackground,
-                        backgroundColor = PrimaryColor,
-                        endIcon = R.drawable.arrow_back
-                    ),
-                    modifier = Modifier
-                        .padding(horizontal = 20.dp)
-                )
-            }
+            ButtonApp(
+                data = ButtonData(
+                    text = "Entrar",
+                    textColor = LettersBlackBackground,
+                    backgroundColor = PrimaryColor,
+                    endIcon = R.drawable.arrow_back
+                ),
+                modifier = Modifier
+                    .padding(horizontal = 20.dp)
+            )
         }
 
     }
