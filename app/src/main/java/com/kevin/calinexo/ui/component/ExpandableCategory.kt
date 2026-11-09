@@ -41,7 +41,7 @@ fun ExpandableCategory(data: ExpandableCategoryData, modifier: Modifier = Modifi
         Text(
             text = data.text,
             color = Color.White,
-            style = MaterialTheme.typography.headlineSmall
+            style = MaterialTheme.typography.labelLarge
         )
 
         Spacer(
