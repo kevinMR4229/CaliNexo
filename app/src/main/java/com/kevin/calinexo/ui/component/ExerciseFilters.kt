@@ -49,7 +49,8 @@ fun ExerciseFilters(data: ExerciseFiltersData, modifier: Modifier = Modifier) {
                         textColor = LettersBlackBackground,
                         boxColor = PrimaryColor,
                         roundedCorner = 50
-                    )
+                    ),
+                    modifier = Modifier.width(100.dp)
                 )
             } else {
                 InfoChip(
@@ -58,7 +59,8 @@ fun ExerciseFilters(data: ExerciseFiltersData, modifier: Modifier = Modifier) {
                         textColor = LettersBlackBackground,
                         boxColor = SecondaryColor,
                         roundedCorner = 50
-                    )
+                    ),
+                    modifier = Modifier.width(100.dp)
                 )
             }
 
@@ -78,10 +80,6 @@ fun ExerciseFiltersPreview() {
     val list: List<FilterOption> = listOf(
         FilterOption(
             name = "Nivel",
-            onClick = {}
-        ),
-        FilterOption(
-            name = "Zona",
             onClick = {}
         ),
         FilterOption(

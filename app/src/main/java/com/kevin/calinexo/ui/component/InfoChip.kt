@@ -46,8 +46,8 @@ fun InfoChip(data: InfoChipData, modifier: Modifier = Modifier) {
         Row(
             modifier = Modifier
                 .padding(all = 5.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(-4.dp)
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically
         ){
             if (data.icon != null){
                 Icon(

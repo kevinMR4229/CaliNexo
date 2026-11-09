@@ -53,7 +53,9 @@ fun ExerciseDetailScreen() {
     ) { innerPadding ->
 
         Column(
-            modifier = Modifier.padding(innerPadding)
+            modifier = Modifier
+                .padding(innerPadding)
+                .padding(horizontal = 20.dp)
         ) {
             pageTitle(
                 data = PageTitleData(
@@ -73,9 +75,7 @@ fun ExerciseDetailScreen() {
                     level = "Intermedio",
                     time = 34,
                     strengh = "Fuerza base"
-                ),
-                modifier = Modifier
-                    .padding(horizontal = 20.dp)
+                )
             )
 
             Spacer(
@@ -100,7 +100,7 @@ fun ExerciseDetailScreen() {
                     )
                 ),
                 modifier = Modifier
-                    .padding(start = 20.dp, top = 5.dp)
+                    .padding(top = 5.dp)
             )
 
             Spacer(
@@ -108,8 +108,7 @@ fun ExerciseDetailScreen() {
             )
 
             Text(
-                modifier = Modifier
-                    .padding(start = 20.dp),
+                modifier = Modifier,
                 text = "Como realizarlo",
                 color = LettersBlackBackground,
                 style = MaterialTheme.typography.bodyMedium
@@ -122,9 +121,7 @@ fun ExerciseDetailScreen() {
             InstructionStepZone(
                 data = InstructionStepZoneData(
                     list = Seeder.sendInstructionStepCards()
-                ),
-                modifier = Modifier
-                    .padding(horizontal = 20.dp)
+                )
             )
 
 
@@ -138,9 +135,7 @@ fun ExerciseDetailScreen() {
                     textColor = LettersBlackBackground,
                     backgroundColor = PrimaryColor,
                     endIcon = R.drawable.arrow_back
-                ),
-                modifier = Modifier
-                    .padding(horizontal = 20.dp)
+                )
             )
         }
 

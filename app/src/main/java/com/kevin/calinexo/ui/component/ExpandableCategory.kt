@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -17,13 +18,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.kevin.calinexo.ui.theme.LettersBlackBackground
 import com.kevin.calinexo.ui.theme.SecondaryColor
+import com.kevin.calinexo.ui.theme.TertiaryColor
 import com.kevin.testapplication.R
 
 data class ExpandableCategoryData(
     val text: String,
-    val textColor: Color,
     val icon: Int,
     val iconColor: Color,
     val onClick: () -> Unit
@@ -40,7 +40,7 @@ fun ExpandableCategory(data: ExpandableCategoryData, modifier: Modifier = Modifi
 
         Text(
             text = data.text,
-            color = data.textColor,
+            color = Color.White,
             style = MaterialTheme.typography.headlineSmall
         )
 
@@ -52,7 +52,7 @@ fun ExpandableCategory(data: ExpandableCategoryData, modifier: Modifier = Modifi
         Box(modifier = Modifier
             .size(28.dp)
             .background(
-                color = Color.Gray,
+                color = TertiaryColor,
                 shape = CircleShape
             ),
             contentAlignment = Alignment.Center) {
@@ -74,14 +74,13 @@ fun ExpandableCategoryPreview() {
     ExpandableCategory(
         data = ExpandableCategoryData(
             text = "Principiante",
-            textColor = LettersBlackBackground,
             icon = R.drawable.outline_arrow_forward_ios_24,
             iconColor = Color.White,
             onClick = {}
         ),
         modifier = Modifier.background(
             color = SecondaryColor,
-            shape = RoundedCornerShape(20)
-        )
+            shape = RoundedCornerShape(20))
+            .padding(15.dp)
     )
 }
