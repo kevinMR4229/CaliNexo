@@ -1,7 +1,7 @@
 package com.kevin.calinexo.ui.viewModel
 
 import androidx.lifecycle.ViewModel
-import com.kevin.calinexo.ui.Seeder
+import com.kevin.calinexo.repo.Seeder
 import com.kevin.calinexo.ui.component.FilterOption
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

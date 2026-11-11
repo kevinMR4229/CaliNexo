@@ -7,16 +7,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.kevin.calinexo.model.Instruction
 import com.kevin.calinexo.ui.theme.LettersBlackBackground
 import com.kevin.calinexo.ui.theme.PrimaryColor
 import com.kevin.calinexo.ui.theme.SecondaryColor
 import com.kevin.calinexo.ui.theme.TertiaryColor
 
 
-data class Instruction(
-    val title: String,
-    val text: String
-)
+
 
 data class InstructionStepZoneData(
     val list: List<Instruction>

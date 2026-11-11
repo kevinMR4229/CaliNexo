@@ -13,6 +13,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.kevin.calinexo.model.Effort
+import com.kevin.calinexo.model.Muscle
 import com.kevin.calinexo.ui.theme.HighPriority
 import com.kevin.calinexo.ui.theme.LettersBlackBackground
 import com.kevin.calinexo.ui.theme.LowPriority
@@ -22,18 +24,9 @@ import com.kevin.calinexo.ui.theme.TertiaryColor
 import com.kevin.testapplication.R
 
 
-enum class Effort(val color: Color) {
-    LOW(LowPriority),
-    MEDIUM(MediumPriority),
-    HIGH(HighPriority);
 
 
-}
 
-data class Muscle(
-    val name: String,
-    val effort: Effort
-)
 
 data class MuscleGroupSectionData(
     val title: String,
@@ -62,7 +55,7 @@ fun MuscleGroupSection(data: MuscleGroupSectionData, modifier: Modifier = Modifi
                         textColor = LettersBlackBackground,
                         boxColor = SecondaryColor,
                         icon = R.drawable.full_circle_24,
-                        iconColor = muscle.effort.color,
+                        iconColor = muscle.effort.getColor(),
                         roundedCorner = 20
 
                     ),

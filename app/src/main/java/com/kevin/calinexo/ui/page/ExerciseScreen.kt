@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -18,18 +17,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.kevin.calinexo.ui.Seeder
 import com.kevin.calinexo.ui.component.ExerciseFilters
 import com.kevin.calinexo.ui.component.ExerciseFiltersData
 import com.kevin.calinexo.ui.component.ExpandableCategoryZone
-import com.kevin.calinexo.ui.component.Footer
-import com.kevin.calinexo.ui.component.HeaderData
 import com.kevin.calinexo.ui.component.SearchBar
 import com.kevin.calinexo.ui.component.SearchBarData
-import com.kevin.calinexo.ui.component.header
-import com.kevin.calinexo.ui.theme.BackgroundColor
 import com.kevin.calinexo.ui.theme.SecondaryColor
-import com.kevin.calinexo.ui.viewModel.ExerciseDetailScreenVM
 import com.kevin.calinexo.ui.viewModel.ExerciseScreenVM
 import com.kevin.testapplication.R
 

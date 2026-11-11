@@ -1,9 +1,10 @@
 package com.kevin.calinexo.ui.viewModel
 
 import androidx.lifecycle.ViewModel
-import com.kevin.calinexo.ui.Seeder
-import com.kevin.calinexo.ui.component.Instruction
-import com.kevin.calinexo.ui.component.Muscle
+import com.kevin.calinexo.model.Exercise
+import com.kevin.calinexo.model.Instruction
+import com.kevin.calinexo.model.Muscle
+import com.kevin.calinexo.repo.Seeder
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
@@ -23,11 +24,13 @@ class ExerciseDetailScreenVM : ViewModel() {
 
     //Cargar los datos
     fun load() {
+        val exercise = Seeder.getExerciseById("pull_up")
+
         _uiState.value = _uiState.value.copy(
-            pageTitle = "Dominadas",
-            exerciseLevel = "Intermedio",
-            muscles = Seeder.sendMuscles(),
-            instructionSteps = Seeder.sendInstructionStepData()
+            pageTitle = exercise.name,
+            exerciseLevel = exercise.difficulty.displayName,
+            muscles = exercise.muscles,
+            instructionSteps = exercise.instructions
 
         )
     }
