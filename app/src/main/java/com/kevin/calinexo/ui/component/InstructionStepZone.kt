@@ -24,12 +24,12 @@ data class InstructionStepZoneData(
 
 
 @Composable
-fun InstructionStepZone(data: InstructionStepZoneData, modifier: Modifier = Modifier) {
+fun InstructionStepZone(data: List<Instruction>, modifier: Modifier = Modifier) {
 
     Column(
         modifier = modifier
     ) {
-        for ((index, instruction) in data.list.withIndex()) {
+        for ((index, instruction) in data.withIndex()) {
             InstructionStepCard(
                 data = InstructionStepCardData(
                     stepNumber = index + 1,
@@ -57,8 +57,7 @@ fun InstructionStepZonePreview() {
     )
 
     InstructionStepZone(
-        data = InstructionStepZoneData(
-            list = list
-        )
+        data = list
+
     )
 }

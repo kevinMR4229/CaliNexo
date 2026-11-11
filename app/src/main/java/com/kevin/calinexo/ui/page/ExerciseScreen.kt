@@ -1,4 +1,4 @@
-package com.kevin.calinexo.ui.pages
+package com.kevin.calinexo.ui.page
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

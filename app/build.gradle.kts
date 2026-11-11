@@ -56,4 +56,5 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     implementation(libs.lucide.compose)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
 }

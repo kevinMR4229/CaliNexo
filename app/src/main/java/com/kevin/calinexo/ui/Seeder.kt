@@ -1,14 +1,17 @@
 package com.kevin.calinexo.ui
 
 import androidx.compose.ui.graphics.Color
+import com.kevin.calinexo.ui.component.Effort
 import com.kevin.calinexo.ui.component.ExpandableCategoryData
 import com.kevin.calinexo.ui.component.FilterOption
 import com.kevin.calinexo.ui.component.Instruction
+import com.kevin.calinexo.ui.component.Muscle
 import com.kevin.testapplication.R
 
 object Seeder {
 
-    fun sendInstructionStepCards(): List<Instruction> {
+    //ExerciseDetailScreen
+    fun sendInstructionStepData(): List<Instruction> {
 
         return listOf(
             Instruction(
@@ -27,6 +30,31 @@ object Seeder {
         )
     }
 
+    fun sendMuscles(): List<Muscle>{
+        return listOf(
+            Muscle(
+                "Biceps",
+                Effort.HIGH
+            ),
+            Muscle(
+                "Core",
+                Effort.MEDIUM
+            ),
+            Muscle(
+                "Piernas",
+                Effort.LOW
+            )
+        )
+    }
+
+
+
+
+
+
+
+
+    //ExerciseScreen
     fun sendExerciseFilters(): List<FilterOption>{
 
         return listOf(
@@ -40,7 +68,6 @@ object Seeder {
             )
         )
     }
-
 
     fun sendExpandableCategoryData(): List<ExpandableCategoryData>{
         return listOf(
