@@ -53,7 +53,7 @@ fun ExerciseScreen(vm: ExerciseScreenVM = viewModel(), modifier: Modifier = Modi
         SearchBar(
             data = SearchBarData(
                 icon = R.drawable.search,
-                text = "",
+                text = state.value.searchBarText,
                 onTextChange = {}
             ))
 

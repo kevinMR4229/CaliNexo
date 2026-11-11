@@ -7,6 +7,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
 data class ExerciseScreenUIState(
+    val searchBarText: String = "",
     val filters: List<FilterOption> = emptyList(),
     val levels: List<String> = emptyList()
 )
