@@ -30,7 +30,7 @@ object Seeder {
         )
     }
 
-    fun sendMuscles(): List<Muscle>{
+    fun sendMuscles(): List<Muscle> {
         return listOf(
             Muscle(
                 "Biceps",
@@ -48,14 +48,8 @@ object Seeder {
     }
 
 
-
-
-
-
-
-
     //ExerciseScreen
-    fun sendExerciseFilters(): List<FilterOption>{
+    fun sendExerciseFilters(): List<FilterOption> {
 
         return listOf(
             FilterOption(
@@ -69,32 +63,12 @@ object Seeder {
         )
     }
 
-    fun sendExpandableCategoryData(): List<ExpandableCategoryData>{
+    fun sendExpandableCategoryLevels(): List<String> {
         return listOf(
-            ExpandableCategoryData(
-                text = "Principiante",
-                icon = R.drawable.outline_arrow_forward_ios_24,
-                iconColor = Color.White,
-                onClick = {}
-            ),
-            ExpandableCategoryData(
-                text = "Intermedio",
-                icon = R.drawable.outline_arrow_forward_ios_24,
-                iconColor = Color.White,
-                onClick = {}
-            ),
-            ExpandableCategoryData(
-                text = "Avanzado",
-                icon = R.drawable.outline_arrow_forward_ios_24,
-                iconColor = Color.White,
-                onClick = {}
-            ),
-            ExpandableCategoryData(
-                text = "Pro",
-                icon = R.drawable.outline_arrow_forward_ios_24,
-                iconColor = Color.White,
-                onClick = {}
-            )
+            "Principiante",
+            "Intermedio",
+            "Avanzado",
+            "Pro"
         )
     }
 }
