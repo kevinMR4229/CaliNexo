@@ -34,5 +34,14 @@ val MediumPriority = Color(0xFFD6A84B)  // ámbar medio
 val HighPriority = Color(0xFFE0665A)    // rojo coral más visible
 
 
+
+//Colores Dificultades
+val BeginnerLevel = Color(0xFF4FAE7A)      // verde
+val IntermediateLevel = Color(0xFF4F8FCB)  // azul
+val AdvancedLevel = Color(0xFFD68A4B)      // naranja
+val ProLevel = Color(0xFFB56AD9)           // violeta
+
+
+
 //Pantalla Info Ejercicio
 val ClockColor = Color.White

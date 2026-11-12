@@ -1,4 +1,2 @@
 ## Dudas
-
-- A mis componentes les doy un RoundedCornerShape y un color por defecto o se lo paso en el modifier cuando los cree.
-- En ExerciseFilters Como hago para que al crearse todos los filtros esten del mismo color exepto el primero que se pondra por defecto en rojo.
+-En el enum Effort estoy asignando un color a cada nivel de esfuerzo, pero la IA me dijo que no deberia llamar a Compose dentro de la capa de modelo, que estas son dos capas separadas. Como hago eso

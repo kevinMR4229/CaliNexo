@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -17,14 +18,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.kevin.calinexo.ui.component.ExerciseCard
+import com.kevin.calinexo.ui.component.ExerciseCardData
 import com.kevin.calinexo.ui.component.ExerciseFilters
 import com.kevin.calinexo.ui.component.ExerciseFiltersData
-import com.kevin.calinexo.ui.component.ExpandableCategoryZone
 import com.kevin.calinexo.ui.component.SearchBar
 import com.kevin.calinexo.ui.component.SearchBarData
 import com.kevin.calinexo.ui.theme.SecondaryColor
 import com.kevin.calinexo.ui.viewModel.ExerciseScreenVM
 import com.kevin.testapplication.R
+import androidx.compose.foundation.lazy.items
 
 
 @Composable
@@ -46,7 +49,7 @@ fun ExerciseScreen(vm: ExerciseScreenVM = viewModel(), modifier: Modifier = Modi
         SearchBar(
             data = SearchBarData(
                 icon = R.drawable.search,
-                text = state.value.searchBarText,
+                text = state.value.searchText,
                 onTextChange = {}
             ))
 
@@ -69,22 +72,16 @@ fun ExerciseScreen(vm: ExerciseScreenVM = viewModel(), modifier: Modifier = Modi
                         color = SecondaryColor,
                         shape = RoundedCornerShape(50.dp)
                     )
-                    .padding(4.dp)
+
             ) {
 
-                //Tuve que Comprobar primero que la lista que le paso del VM no este vacia, ya que yo la inicializo
-                // vacia y luego con la funcion load() le cargo los datos del Seeder, pero la pantalla se intenta pintar
-                // antes de cargar los datos del Seeder y como intenta obtener el elemento [0] de una lista vacia da OutOfBoundExeption
-                if (state.value.filters.isNotEmpty()) {
-
-                    ExerciseFilters(
-                        data = ExerciseFiltersData(
-                            filters = state.value.filters,
-                            selected = state.value.filters[0],
-                            backgroundColor = SecondaryColor
-                        )
+                ExerciseFilters(
+                    data = ExerciseFiltersData(
+                        levels = state.value.levels,
+                        selectedLevel = state.value.selectedLevel,
+                        onLevelSelected = { }
                     )
-                }
+                )
             }
         }
 
@@ -96,93 +93,32 @@ fun ExerciseScreen(vm: ExerciseScreenVM = viewModel(), modifier: Modifier = Modi
 
         //Niveles
 
-        ExpandableCategoryZone(
-            list = state.value.levels,
+        LazyColumn(
+            modifier = Modifier.weight(1f)
+        ) {
+            items(state.value.exercises) { exercise ->
 
-            )
+                ExerciseCard(
+                    data = ExerciseCardData(
+                        name = exercise.name,
+                        difficultyLevel = exercise.difficulty,
+                        image = exercise.image
+                    )
+                )
+
+                Spacer(
+                    modifier = Modifier.height(10.dp)
+                )
+            }
+        }
     }
 
-
-    //Scaffold(
-    //    containerColor = BackgroundColor,
-    //    topBar = {
-    //        header(
-    //            data = HeaderData(
-    //                logo = R.drawable.logo_mejorado,
-    //                nombre = "CaliNexo"
-    //            )
-    //        )
-    //    },
-    //    bottomBar = {
-    //        Footer()
-    //    }
-    //) { innerPadding ->
-//
-    //    Column(
-    //        modifier = Modifier
-    //            .padding(innerPadding)
-    //            .padding(top = 16.dp)
-    //            .padding(horizontal = 20.dp)
-    //    ) {
-//
-//
-    //        //Barra de busqueda
-//
-    //        SearchBar(
-    //            data = SearchBarData(
-    //                icon = R.drawable.search,
-    //                text = "",
-    //                onTextChange = {}
-    //            ))
-//
-//
-    //        Spacer(
-    //            modifier = Modifier.height(20.dp)
-    //        )
-//
-//
-    //        //Filtros
-//
-    //        Box(
-    //            modifier = Modifier.fillMaxWidth(),
-    //            contentAlignment = Alignment.Center
-    //        ) {
-//
-    //            Row(
-    //                modifier = Modifier
-    //                    .background(
-    //                        color = SecondaryColor,
-    //                        shape = RoundedCornerShape(50.dp)
-    //                    )
-    //                    .padding(4.dp)
-    //            ) {
-//
-    //                ExerciseFilters(
-    //                    data = ExerciseFiltersData(
-    //                        filters = Seeder.sendExerciseFilters(),
-    //                        selected = Seeder.sendExerciseFilters()[0],
-    //                        backgroundColor = SecondaryColor
-    //                    )
-    //                )
-    //            }
-    //        }
-//
-//
-    //        Spacer(
-    //            modifier = Modifier.height(30.dp)
-    //        )
-//
-//
-    //        //Niveles
-//
-    //        ExpandableCategoryZone(
-    //            list = Seeder.sendExpandableCategoryLevels(),
-//
-    //            )
-    //    }
-//
-    //}
 }
+
+
+
+
+
 
 @Preview
 @Composable

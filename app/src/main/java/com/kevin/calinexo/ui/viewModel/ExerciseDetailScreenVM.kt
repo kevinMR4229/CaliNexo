@@ -9,10 +9,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
 data class ExerciseDetailScreenUIState(
-    val pageTitle: String = "",
-    val exerciseLevel: String = "",
-    val muscles: List<Muscle> = emptyList(),
-    val instructionSteps: List<Instruction> = emptyList()
+    val exercise: Exercise? = null
 )
 
 private const val TAG = "ExerciseDetailScreenVM"
@@ -24,13 +21,10 @@ class ExerciseDetailScreenVM : ViewModel() {
 
     //Cargar los datos
     fun load() {
-        val exercise = Seeder.getExerciseById("pull_up")
+        val foundExercise = Seeder.getExerciseById("pull_up")
 
         _uiState.value = _uiState.value.copy(
-            pageTitle = exercise.name,
-            exerciseLevel = exercise.difficulty.displayName,
-            muscles = exercise.muscles,
-            instructionSteps = exercise.instructions
+            exercise = foundExercise
 
         )
     }

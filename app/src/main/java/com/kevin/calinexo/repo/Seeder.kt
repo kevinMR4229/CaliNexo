@@ -5,13 +5,15 @@ import com.kevin.calinexo.model.Effort
 import com.kevin.calinexo.model.Exercise
 import com.kevin.calinexo.model.Instruction
 import com.kevin.calinexo.model.Muscle
-import com.kevin.calinexo.ui.component.FilterOption
+import com.kevin.testapplication.R
 
 object Seeder {
 
-    val exercises: List<Exercise> = listOf(
+    private val exercises: List<Exercise> = listOf(
+        //Dominadas
         Exercise(
             id = "pull_up",
+            image = R.drawable.imagen_dominadas_prueba,
             name = "Dominadas",
             difficulty = DifficultyLevel.INTERMEDIATE,
 
@@ -36,15 +38,53 @@ object Seeder {
                     text = "Tira hacia arriba usando solo los brazos hasta que la barbilla sobrepase la barra"
                 )
             )
+        ),
+
+        //Flexiones
+        Exercise(
+            id = "push_up",
+            image = R.drawable.imagen_flexiones,
+            name = "Flexiones",
+            difficulty = DifficultyLevel.BEGINNER,
+
+            muscles = listOf(
+                Muscle(
+                    name = "Pecho",
+                    effort = Effort.HIGH
+                ),
+                Muscle(
+                    name = "Espalda",
+                    effort = Effort.LOW
+                ),
+                Muscle(
+                    name = "Bíceps",
+                    effort = Effort.LOW
+                )
+            ),
+
+            instructions = listOf(
+                Instruction(
+                    title = "Colocacion",
+                    text = "Colocate boca abajo apollado sobre la palma de las manos y la punta de los pies. Los brazos abiertos a la anchura de los hombros"
+                ),
+                Instruction(
+                    title = "Bajada",
+                    text = "Flexiona los codos y baja de manera controlada con el tronco recto"
+                ),
+                Instruction(
+                    title = "Subida",
+                    text = "Sube de manera controlada con el tronco recto"
+                )
+            )
         )
     )
-
 
 
     fun getExerciseById(id: String): Exercise {
         val exercise = exercises.find { it.id == id }
 
-        if (exercise == null){throw IllegalArgumentException("Ejercicio no encontrado")
+        if (exercise == null) {
+            throw IllegalArgumentException("Ejercicio no encontrado")
         }
 
         return exercise
@@ -55,37 +95,4 @@ object Seeder {
     }
 
 
-
-
-
-
-
-
-    //ExerciseDetailScreen
-
-
-
-    //ExerciseScreen
-    fun sendExerciseFilters(): List<FilterOption> {
-
-        return listOf(
-            FilterOption(
-                name = "Nivel",
-                onClick = {}
-            ),
-            FilterOption(
-                name = "Zona",
-                onClick = {}
-            )
-        )
-    }
-
-    fun sendExpandableCategoryLevels(): List<String> {
-        return listOf(
-            "Principiante",
-            "Intermedio",
-            "Avanzado",
-            "Pro"
-        )
-    }
 }

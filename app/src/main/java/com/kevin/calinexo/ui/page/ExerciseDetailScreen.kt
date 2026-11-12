@@ -38,190 +38,84 @@ fun ExerciseDetailScreen(vm: ExerciseDetailScreenVM = viewModel(), modifier: Mod
 
     val state = vm.uiState.collectAsState()
 
+    val exercise = state.value.exercise
 
-    Column(
-        modifier = modifier
-            .padding(horizontal = 20.dp)
-    ){
-        pageTitle(
-            data = PageTitleData(
-                pageTittle = state.value.pageTitle,
-                arrowBack = R.drawable.arrow_back,
-                heart = R.drawable.ic_favorite_border,
-                onIconoIzq = {},
-                onIconoDer = {}
-            ),
-            modifier = Modifier
-                .padding(bottom = 5.dp)
-        )
+    if (exercise != null) {
 
-        ExerciseMediaCard(
-            data = ExerciseMediaCarddata(
-                image = R.drawable.imagen_dominadas_prueba,
-                level = state.value.exerciseLevel,
-                time = 34,
-                strengh = "Fuerza base"
+        Column(
+            modifier = modifier
+                .padding(horizontal = 20.dp)
+        ) {
+            pageTitle(
+                data = PageTitleData(
+                    pageTittle = exercise.name,
+                    arrowBack = R.drawable.arrow_back,
+                    heart = R.drawable.ic_favorite_border,
+                    onIconoIzq = {},
+                    onIconoDer = {}
+                ),
+                modifier = Modifier
+                    .padding(bottom = 5.dp)
             )
-        )
 
-        Spacer(
-            modifier = Modifier.height(16.dp)
-        )
-
-        MuscleGroupSection(
-            data = MuscleGroupSectionData(
-                title = "Musculos Principales",
-                muscles = state.value.muscles
-            ),
-            modifier = Modifier
-                .padding(top = 5.dp)
-        )
-
-        Spacer(
-            modifier = Modifier.height(20.dp)
-        )
-
-        Text(
-            modifier = Modifier,
-            text = "Como realizarlo",
-            color = LettersBlackBackground,
-            style = MaterialTheme.typography.bodyMedium
-        )
-
-        Spacer(
-            modifier = Modifier.height(16.dp)
-        )
-
-        InstructionStepZone(
-            data = state.value.instructionSteps
-        )
-
-
-        Spacer(
-            modifier = Modifier.height(16.dp)
-        )
-
-        ButtonApp(
-            data = ButtonData(
-                text = "Entrar",
-                textColor = LettersBlackBackground,
-                backgroundColor = PrimaryColor,
-                endIcon = R.drawable.arrow_back
+            ExerciseMediaCard(
+                data = ExerciseMediaCarddata(
+                    image = exercise.image,
+                    level = exercise.difficulty.displayName,
+                    time = 34,
+                    strengh = "Fuerza base"
+                )
             )
-        )
+
+            Spacer(
+                modifier = Modifier.height(16.dp)
+            )
+
+            MuscleGroupSection(
+                data = MuscleGroupSectionData(
+                    title = "Musculos Principales",
+                    muscles = exercise.muscles
+                ),
+                modifier = Modifier
+                    .padding(top = 5.dp)
+            )
+
+            Spacer(
+                modifier = Modifier.height(20.dp)
+            )
+
+            Text(
+                modifier = Modifier,
+                text = "Como realizarlo",
+                color = LettersBlackBackground,
+                style = MaterialTheme.typography.bodyMedium
+            )
+
+            Spacer(
+                modifier = Modifier.height(16.dp)
+            )
+
+            InstructionStepZone(
+                data = exercise.instructions
+            )
+
+
+            Spacer(
+                modifier = Modifier.height(16.dp)
+            )
+
+            ButtonApp(
+                data = ButtonData(
+                    text = "Entrar",
+                    textColor = LettersBlackBackground,
+                    backgroundColor = PrimaryColor,
+                    endIcon = R.drawable.arrow_back
+                )
+            )
+        }
+
     }
-
-
-
-
-
-
-
-
-
-    //Scaffold(
-    //    containerColor = BackgroundColor,
-    //    topBar = {
-    //        header(
-    //            data = HeaderData(
-    //                logo = R.drawable.logo_mejorado,
-    //                nombre = "CaliNexo"
-    //            )
-    //        )
-    //    },
-    //    bottomBar = {
-    //        Footer()
-    //    }
-    //) { innerPadding ->
-//
-    //    Column(
-    //        modifier = Modifier
-    //            .padding(innerPadding)
-    //            .padding(horizontal = 20.dp)
-    //    ) {
-    //        pageTitle(
-    //            data = PageTitleData(
-    //                pageTittle = "Dominadas",
-    //                arrowBack = R.drawable.arrow_back,
-    //                heart = R.drawable.ic_favorite_border,
-    //                onIconoIzq = {},
-    //                onIconoDer = {}
-    //            ),
-    //            modifier = Modifier
-    //                .padding(bottom = 5.dp)
-    //        )
-//
-    //        ExerciseMediaCard(
-    //            data = ExerciseMediaCarddata(
-    //                image = R.drawable.imagen_dominadas_prueba,
-    //                level = "Intermedio",
-    //                time = 34,
-    //                strengh = "Fuerza base"
-    //            )
-    //        )
-//
-    //        Spacer(
-    //            modifier = Modifier.height(16.dp)
-    //        )
-//
-    //        MuscleGroupSection(
-    //            data = MuscleGroupSectionData(
-    //                title = "Musculos Principales",
-    //                muscles = listOf(
-    //                    Muscle(
-    //                        name = "Biceps",
-    //                        effort = Effort.HIGH
-    //                    ), Muscle(
-    //                        name = "Core",
-    //                        effort = Effort.MEDIUM
-    //                    ),
-    //                    Muscle(
-    //                        name = "Piernas",
-    //                        effort = Effort.LOW
-    //                    )
-    //                )
-    //            ),
-    //            modifier = Modifier
-    //                .padding(top = 5.dp)
-    //        )
-//
-    //        Spacer(
-    //            modifier = Modifier.height(20.dp)
-    //        )
-//
-    //        Text(
-    //            modifier = Modifier,
-    //            text = "Como realizarlo",
-    //            color = LettersBlackBackground,
-    //            style = MaterialTheme.typography.bodyMedium
-    //        )
-//
-    //        Spacer(
-    //            modifier = Modifier.height(16.dp)
-    //        )
-//
-    //        InstructionStepZone(
-    //            data = Seeder.sendInstructionStepCards()
-    //        )
-//
-//
-    //        Spacer(
-    //            modifier = Modifier.height(16.dp)
-    //        )
-//
-    //        ButtonApp(
-    //            data = ButtonData(
-    //                text = "Entrar",
-    //                textColor = LettersBlackBackground,
-    //                backgroundColor = PrimaryColor,
-    //                endIcon = R.drawable.arrow_back
-    //            )
-    //        )
-    //    }
-//
-    //}
 }
-
 
 @Preview
 @Composable
