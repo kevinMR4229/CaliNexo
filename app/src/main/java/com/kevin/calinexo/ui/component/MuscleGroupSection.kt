@@ -20,7 +20,6 @@ import com.kevin.calinexo.ui.theme.LettersBlackBackground
 import com.kevin.calinexo.ui.theme.LowPriority
 import com.kevin.calinexo.ui.theme.MediumPriority
 import com.kevin.calinexo.ui.theme.SecondaryColor
-import com.kevin.calinexo.ui.theme.TertiaryColor
 import com.kevin.testapplication.R
 
 
@@ -55,7 +54,11 @@ fun MuscleGroupSection(data: MuscleGroupSectionData, modifier: Modifier = Modifi
                         textColor = LettersBlackBackground,
                         boxColor = SecondaryColor,
                         icon = R.drawable.full_circle_24,
-                        iconColor = muscle.effort.getColor(),
+                        iconColor = when(muscle.effort){
+                            Effort.LOW -> LowPriority
+                            Effort.MEDIUM -> MediumPriority
+                            Effort.HIGH -> HighPriority
+                        },
                         roundedCorner = 20
 
                     ),
