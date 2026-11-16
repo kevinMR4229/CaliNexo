@@ -21,7 +21,7 @@ class ExerciseDetailScreenVM : ViewModel() {
 
     //Cargar los datos
     fun load() {
-        val foundExercise = Seeder.getExerciseById("pull_up")
+        val foundExercise = Seeder.getExerciseById("push_up")
 
         _uiState.value = _uiState.value.copy(
             exercise = foundExercise

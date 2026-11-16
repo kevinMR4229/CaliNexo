@@ -28,6 +28,10 @@ import com.kevin.calinexo.ui.theme.SecondaryColor
 import com.kevin.calinexo.ui.viewModel.ExerciseScreenVM
 import com.kevin.testapplication.R
 import androidx.compose.foundation.lazy.items
+import com.kevin.calinexo.model.DifficultyLevel
+import com.kevin.calinexo.ui.theme.HighPriority
+import com.kevin.calinexo.ui.theme.LowPriority
+import com.kevin.calinexo.ui.theme.MediumPriority
 
 
 @Composable
@@ -102,6 +106,12 @@ fun ExerciseScreen(vm: ExerciseScreenVM = viewModel(), modifier: Modifier = Modi
                     data = ExerciseCardData(
                         name = exercise.name,
                         difficultyLevel = exercise.difficulty,
+                        difficultyColor = when(exercise.difficulty){
+                            DifficultyLevel.BEGINNER -> LowPriority
+                            DifficultyLevel.INTERMEDIATE -> MediumPriority
+                            DifficultyLevel.ADVANCED -> HighPriority
+                            DifficultyLevel.PRO -> HighPriority
+                        },
                         image = exercise.image
                     )
                 )
