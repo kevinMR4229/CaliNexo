@@ -35,7 +35,7 @@ import com.kevin.calinexo.ui.theme.MediumPriority
 
 
 @Composable
-fun ExerciseScreen(vm: ExerciseScreenVM = viewModel(), modifier: Modifier = Modifier) {
+fun ExerciseScreen(modifier: Modifier = Modifier, vm: ExerciseScreenVM = viewModel()) {
 
     LaunchedEffect(Unit) {
         vm.load()
@@ -53,8 +53,8 @@ fun ExerciseScreen(vm: ExerciseScreenVM = viewModel(), modifier: Modifier = Modi
         SearchBar(
             data = SearchBarData(
                 icon = R.drawable.search,
-                text = state.value.searchText,
-                onTextChange = {}
+                text = state.value.filter,
+                onTextChange = vm::onFilterChange
             ))
 
 
@@ -83,7 +83,7 @@ fun ExerciseScreen(vm: ExerciseScreenVM = viewModel(), modifier: Modifier = Modi
                     data = ExerciseFiltersData(
                         levels = state.value.levels,
                         selectedLevel = state.value.selectedLevel,
-                        onLevelSelected = { }
+                        onLevelSelected = vm::onLevelSelected
                     )
                 )
             }

@@ -1,6 +1,5 @@
 package com.kevin.calinexo.ui.component
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
@@ -13,6 +12,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.kevin.calinexo.ui.theme.LettersBlackBackground
+import com.kevin.calinexo.ui.theme.PrimaryColor
 import com.kevin.calinexo.ui.theme.SecondaryColor
 import com.kevin.testapplication.R
 
@@ -37,6 +38,11 @@ fun SearchBar(data: SearchBarData, modifier: Modifier = Modifier) {
         colors = TextFieldDefaults.colors(
             focusedContainerColor = SecondaryColor,
             unfocusedContainerColor = SecondaryColor,
+
+            focusedTextColor = LettersBlackBackground,
+            unfocusedTextColor = LettersBlackBackground,
+
+            cursorColor = PrimaryColor,
 
             focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent
