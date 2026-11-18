@@ -30,15 +30,17 @@ import com.kevin.calinexo.ui.viewModel.ExerciseDetailScreenVM
 
 
 @Composable
-fun ExerciseDetailScreen(vm: ExerciseDetailScreenVM = viewModel(), modifier: Modifier = Modifier) {
+fun ExerciseDetailScreen(id: String, modifier: Modifier = Modifier, vm: ExerciseDetailScreenVM = viewModel()) {
 
     LaunchedEffect(Unit) {
-        vm.load()
+        vm.load(id)
     }
 
     val state = vm.uiState.collectAsState()
 
     val exercise = state.value.exercise
+
+
 
     if (exercise != null) {
 
@@ -120,5 +122,5 @@ fun ExerciseDetailScreen(vm: ExerciseDetailScreenVM = viewModel(), modifier: Mod
 @Preview
 @Composable
 fun ExerciseDetailScreenPreview() {
-    ExerciseDetailScreen()
+    ExerciseDetailScreen(id = "push_up")
 }

@@ -25,6 +25,9 @@ class ExerciseScreenVM : ViewModel() {
         _uiState.value = _uiState.value.copy(
             levels = DifficultyLevel.entries,
             exercises = Seeder.getAllExercises()
+                .filter { exercise ->
+                    exercise.difficulty == DifficultyLevel.BEGINNER
+                }
         )
     }
 
@@ -32,10 +35,7 @@ class ExerciseScreenVM : ViewModel() {
         _uiState.update {
             it.copy(
                 filter = filter,
-                exercises = Seeder.getAllExercises()
-                    .filter { exercise ->
-                        exercise.name.contains(filter, ignoreCase = true)
-                    }
+                exercises = Seeder.getExercisesFilterName(filter)
             )
         }
 
@@ -46,10 +46,7 @@ class ExerciseScreenVM : ViewModel() {
         _uiState.update {
             it.copy(
                 selectedLevel = level,
-                exercises = Seeder.getAllExercises()
-                    .filter { exercise ->
-                        exercise.difficulty == level
-                    }
+                exercises = Seeder.getExercisesFilterLevel(level)
             )
         }
     }
