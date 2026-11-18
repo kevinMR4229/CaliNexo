@@ -104,15 +104,15 @@ fun ExerciseScreen(vm: ExerciseScreenVM = viewModel(), modifier: Modifier = Modi
 
                 ExerciseCard(
                     data = ExerciseCardData(
-                        name = exercise.name,
-                        difficultyLevel = exercise.difficulty,
-                        difficultyColor = when(exercise.difficulty){
+                        tittle = exercise.name,
+                        subTittle = exercise.difficulty,
+                        image = exercise.image,
+                        subtittleColor = when(exercise.difficulty) {
                             DifficultyLevel.BEGINNER -> LowPriority
                             DifficultyLevel.INTERMEDIATE -> MediumPriority
                             DifficultyLevel.ADVANCED -> HighPriority
                             DifficultyLevel.PRO -> HighPriority
-                        },
-                        image = exercise.image
+                        }
                     )
                 )
 

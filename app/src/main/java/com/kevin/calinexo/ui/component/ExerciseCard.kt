@@ -26,17 +26,14 @@ import com.kevin.calinexo.ui.theme.SecondaryColor
 import androidx.compose.material3.Text
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import com.kevin.calinexo.ui.theme.HighPriority
 import com.kevin.calinexo.ui.theme.LettersBlackBackground
-import com.kevin.calinexo.ui.theme.LowPriority
-import com.kevin.calinexo.ui.theme.MediumPriority
 import com.kevin.testapplication.R
 
 data class ExerciseCardData(
-    val name: String,
-    val difficultyLevel: DifficultyLevel,
-    val difficultyColor: Color,
-    val image: Int
+    val tittle: String,
+    val subTittle: DifficultyLevel,
+    val image: Int,
+    val subtittleColor: Color
 )
 
 
@@ -82,14 +79,14 @@ fun ExerciseCard(data: ExerciseCardData, modifier: Modifier = Modifier) {
                 .padding(vertical = 5.dp)
         ) {
             Text(
-                text = data.name,
+                text = data.tittle,
                 color = LettersBlackBackground,
                 style = MaterialTheme.typography.labelLarge
             )
 
             Text(
-                text = data.difficultyLevel.displayName,
-                color = data.difficultyColor,
+                text = data.subTittle.displayName,
+                color = data.subtittleColor,
                 style = MaterialTheme.typography.labelSmall
             )
         }
@@ -102,10 +99,10 @@ fun ExerciseCard(data: ExerciseCardData, modifier: Modifier = Modifier) {
 fun ExerciseCardPreview() {
     ExerciseCard(
         data = ExerciseCardData(
-            name = "Dominadas",
-            difficultyLevel = DifficultyLevel.INTERMEDIATE,
-            difficultyColor = Color.Yellow,
-            image = R.drawable.imagen_dominadas_prueba
+            tittle = "Dominadas",
+            subTittle = DifficultyLevel.INTERMEDIATE,
+            image = R.drawable.imagen_dominadas_prueba,
+            subtittleColor = Color.Yellow
         )
     )
 }
