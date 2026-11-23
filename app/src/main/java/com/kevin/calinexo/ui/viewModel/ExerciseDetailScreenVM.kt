@@ -2,8 +2,6 @@ package com.kevin.calinexo.ui.viewModel
 
 import androidx.lifecycle.ViewModel
 import com.kevin.calinexo.model.Exercise
-import com.kevin.calinexo.model.Instruction
-import com.kevin.calinexo.model.Muscle
 import com.kevin.calinexo.repo.Seeder
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -20,11 +18,10 @@ class ExerciseDetailScreenVM : ViewModel() {
     val uiState = _uiState.asStateFlow()
 
     //Cargar los datos
-    fun load() {
-        val foundExercise = Seeder.getExerciseById("push_up")
+    fun load(id: String) {
 
         _uiState.value = _uiState.value.copy(
-            exercise = foundExercise
+            exercise = Seeder.getExerciseById(id)
 
         )
     }
