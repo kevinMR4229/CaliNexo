@@ -25,6 +25,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kevin.calinexo.model.DifficultyLevel
+import com.kevin.calinexo.ui.theme.CalinexoTheme
 import com.kevin.testapplication.R
 
 data class ExerciseCardData(
@@ -89,12 +90,15 @@ fun ExerciseCard(
 @Preview
 @Composable
 fun ExerciseCardPreview() {
-    ExerciseCard(
-        data = ExerciseCardData(
-            tittle = "Dominadas",
-            subTittle = DifficultyLevel.INTERMEDIATE,
-            image = R.drawable.imagen_dominadas_prueba,
-            subtittleColor = Color.Yellow
+    CalinexoTheme() {
+        ExerciseCard(
+            data = ExerciseCardData(
+                tittle = "Dominadas",
+                subTittle = DifficultyLevel.INTERMEDIATE,
+                image = R.drawable.imagen_dominadas_prueba,
+                subtittleColor = Color.Yellow
+            )
         )
-    )
+    }
+
 }

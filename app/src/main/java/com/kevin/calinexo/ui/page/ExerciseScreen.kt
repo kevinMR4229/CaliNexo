@@ -12,6 +12,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -27,6 +28,11 @@ import com.kevin.calinexo.ui.component.ExerciseFilters
 import com.kevin.calinexo.ui.component.ExerciseFiltersData
 import com.kevin.calinexo.ui.component.SearchBar
 import com.kevin.calinexo.ui.component.SearchBarData
+import com.kevin.calinexo.ui.theme.AdvancedLevel
+import com.kevin.calinexo.ui.theme.BeginnerLevel
+import com.kevin.calinexo.ui.theme.CalinexoTheme
+import com.kevin.calinexo.ui.theme.IntermediateLevel
+import com.kevin.calinexo.ui.theme.ProLevel
 import com.kevin.calinexo.ui.viewModel.ExerciseScreenVM
 import com.kevin.testapplication.R
 
@@ -111,16 +117,16 @@ fun ExerciseScreen(
                         image = exercise.image,
                         subtittleColor = when (exercise.difficulty) {
                             DifficultyLevel.BEGINNER ->
-                                MaterialTheme.colorScheme.tertiary
+                                BeginnerLevel
 
                             DifficultyLevel.INTERMEDIATE ->
-                                MaterialTheme.colorScheme.secondary
+                                IntermediateLevel
 
                             DifficultyLevel.ADVANCED ->
-                                MaterialTheme.colorScheme.error
+                                AdvancedLevel
 
                             DifficultyLevel.PRO ->
-                                MaterialTheme.colorScheme.primary
+                                ProLevel
                         }
                     )
                 )
@@ -137,5 +143,13 @@ fun ExerciseScreen(
 @Preview
 @Composable
 fun ExerciseScreenPreview() {
-    ExerciseScreen()
+    CalinexoTheme() {
+        Surface(
+            color = MaterialTheme.colorScheme.background
+        ){
+            ExerciseScreen()
+        }
+
+    }
+
 }

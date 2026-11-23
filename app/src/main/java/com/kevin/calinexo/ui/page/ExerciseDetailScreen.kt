@@ -22,8 +22,15 @@ import com.kevin.calinexo.ui.component.MuscleGroupSection
 import com.kevin.calinexo.ui.component.MuscleGroupSectionData
 import com.kevin.calinexo.ui.component.PageTitleData
 import com.kevin.calinexo.ui.component.pageTitle
+import com.kevin.calinexo.ui.theme.CalinexoTheme
 import com.kevin.calinexo.ui.viewModel.ExerciseDetailScreenVM
 import com.kevin.testapplication.R
+import androidx.compose.material3.Surface
+import com.kevin.calinexo.model.DifficultyLevel
+import com.kevin.calinexo.ui.theme.AdvancedLevel
+import com.kevin.calinexo.ui.theme.BeginnerLevel
+import com.kevin.calinexo.ui.theme.IntermediateLevel
+import com.kevin.calinexo.ui.theme.ProLevel
 
 
 @Composable
@@ -65,6 +72,19 @@ fun ExerciseDetailScreen(
                 data = ExerciseMediaCardData(
                     image = exercise.image,
                     level = exercise.difficulty.displayName,
+                    chipColor = when (exercise.difficulty) {
+                        DifficultyLevel.BEGINNER ->
+                            BeginnerLevel
+
+                        DifficultyLevel.INTERMEDIATE ->
+                            IntermediateLevel
+
+                        DifficultyLevel.ADVANCED ->
+                            AdvancedLevel
+
+                        DifficultyLevel.PRO ->
+                            ProLevel
+                    }
                 )
             )
 
@@ -119,5 +139,11 @@ fun ExerciseDetailScreen(
 @Preview
 @Composable
 fun ExerciseDetailScreenPreview() {
-    ExerciseDetailScreen(id = "push_up")
+    CalinexoTheme {
+        Surface(
+            color = MaterialTheme.colorScheme.background
+        ) {
+            ExerciseDetailScreen(id = "pull_up")
+        }
+    }
 }

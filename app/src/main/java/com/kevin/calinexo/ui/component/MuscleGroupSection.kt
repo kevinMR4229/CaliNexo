@@ -14,6 +14,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kevin.calinexo.model.Effort
 import com.kevin.calinexo.model.Muscle
+import com.kevin.calinexo.ui.theme.AdvancedLevel
+import com.kevin.calinexo.ui.theme.BeginnerLevel
+import com.kevin.calinexo.ui.theme.IntermediateLevel
 import com.kevin.testapplication.R
 
 data class MuscleGroupSectionData(
@@ -52,9 +55,9 @@ fun MuscleGroupSection(
                         boxColor = MaterialTheme.colorScheme.surfaceContainer,
                         icon = R.drawable.full_circle_24,
                         iconColor = when (muscle.effort) {
-                            Effort.LOW -> Color.Green
-                            Effort.MEDIUM -> Color.Yellow
-                            Effort.HIGH -> Color.Red
+                            Effort.LOW -> BeginnerLevel
+                            Effort.MEDIUM -> IntermediateLevel
+                            Effort.HIGH -> AdvancedLevel
                         },
                         roundedCorner = 20
                     )

@@ -23,6 +23,7 @@ import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.kevin.calinexo.ui.theme.CalinexoTheme
 
 
 data class HeaderData(
@@ -89,11 +90,14 @@ fun header(
 @Preview
 @Composable
 fun headerPreview() {
-    header(
-        data = HeaderData(
-            logo = R.drawable.logo_mejorado,
-            nombre = "CaliNexo"
-        ),
-        modifier = Modifier
-    )
+    CalinexoTheme() {
+        header(
+            data = HeaderData(
+                logo = R.drawable.logo_mejorado,
+                nombre = "CaliNexo"
+            ),
+            modifier = Modifier
+        )
+    }
+
 }

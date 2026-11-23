@@ -16,6 +16,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.kevin.calinexo.ui.theme.CalinexoTheme
 import com.kevin.testapplication.R
 
 data class ButtonData(
@@ -78,10 +79,13 @@ fun ButtonApp(
 @Preview
 @Composable
 fun ButtonAppPreview() {
-    ButtonApp(
-        data = ButtonData(
-            text = "Entrar",
-            endIcon = R.drawable.arrow_back
+    CalinexoTheme() {
+        ButtonApp(
+            data = ButtonData(
+                text = "Entrar",
+                endIcon = R.drawable.arrow_back
+            )
         )
-    )
+    }
+
 }
