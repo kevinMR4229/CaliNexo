@@ -7,58 +7,53 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.kevin.calinexo.ui.theme.PrimaryColor
-import com.kevin.calinexo.ui.theme.LettersBlackBackground
 import com.kevin.testapplication.R
-
 
 data class ButtonData(
     val text: String,
-    val textColor: Color,
-    val backgroundColor: Color,
     val initIcon: Int? = null,
-    val initIconColor: Color = Color.White,
-    val endIcon: Int? = null,
-    val endIconColor: Color = Color.White
+    val endIcon: Int? = null
 )
 
 @Composable
-fun ButtonApp(data: ButtonData, modifier: Modifier = Modifier){
+fun ButtonApp(
+    data: ButtonData,
+    modifier: Modifier = Modifier
+) {
 
     Button(
         onClick = {},
         modifier = modifier,
-        shape = RoundedCornerShape(20),
+        shape = RoundedCornerShape(20.dp),
         colors = ButtonDefaults.buttonColors(
-            containerColor = data.backgroundColor)
-    ){
+            containerColor = MaterialTheme.colorScheme.primary,
+            contentColor = MaterialTheme.colorScheme.onPrimary
+        )
+    ) {
 
-        //Espacio
         Spacer(modifier = Modifier.weight(1f))
 
         if (data.initIcon != null) {
             Icon(
                 painter = painterResource(data.initIcon),
-                contentDescription = "icono",
-                tint = data.initIconColor,
+                contentDescription = "Icono",
+                tint = MaterialTheme.colorScheme.onPrimary,
                 modifier = Modifier.size(24.dp)
             )
         }
 
-
-
         Text(
             text = data.text,
-            color = data.textColor,
+            color = MaterialTheme.colorScheme.onPrimary,
             fontSize = 15.sp,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(
@@ -67,31 +62,25 @@ fun ButtonApp(data: ButtonData, modifier: Modifier = Modifier){
             )
         )
 
-
-        if (data.endIcon != null){
+        if (data.endIcon != null) {
             Icon(
                 painter = painterResource(data.endIcon),
-                contentDescription = "icono",
-                tint = data.endIconColor,
+                contentDescription = "Icono",
+                tint = MaterialTheme.colorScheme.onPrimary,
                 modifier = Modifier.size(24.dp)
             )
         }
 
-
-        //Espacio
         Spacer(modifier = Modifier.weight(1f))
     }
 }
 
-
 @Preview
 @Composable
-fun ButtonAppPreview(){
+fun ButtonAppPreview() {
     ButtonApp(
         data = ButtonData(
             text = "Entrar",
-            textColor = LettersBlackBackground,
-            backgroundColor = PrimaryColor,
             endIcon = R.drawable.arrow_back
         )
     )

@@ -1,44 +1,39 @@
 package com.kevin.calinexo.ui.component
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.ui.Modifier
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kevin.calinexo.model.Effort
 import com.kevin.calinexo.model.Muscle
-import com.kevin.calinexo.ui.theme.HighPriority
-import com.kevin.calinexo.ui.theme.LettersBlackBackground
-import com.kevin.calinexo.ui.theme.LowPriority
-import com.kevin.calinexo.ui.theme.MediumPriority
-import com.kevin.calinexo.ui.theme.SecondaryColor
 import com.kevin.testapplication.R
-
-
-
-
-
 
 data class MuscleGroupSectionData(
     val title: String,
     val muscles: List<Muscle>
 )
 
-
 @Composable
-fun MuscleGroupSection(data: MuscleGroupSectionData, modifier: Modifier = Modifier) {
-    Column(modifier = modifier) {
+fun MuscleGroupSection(
+    data: MuscleGroupSectionData,
+    modifier: Modifier = Modifier
+) {
+
+    Column(
+        modifier = modifier
+    ) {
+
         Text(
             text = data.title,
-            color = LettersBlackBackground,
+            color = MaterialTheme.colorScheme.onSurface,
             style = MaterialTheme.typography.bodyMedium
         )
 
@@ -46,50 +41,46 @@ fun MuscleGroupSection(data: MuscleGroupSectionData, modifier: Modifier = Modifi
             modifier = Modifier.height(4.dp)
         )
 
-        Row() {
+        Row {
+
             for (muscle in data.muscles) {
+
                 InfoChip(
-                    InfoChipData(
+                    data = InfoChipData(
                         text = muscle.name,
-                        textColor = LettersBlackBackground,
-                        boxColor = SecondaryColor,
+                        textColor = MaterialTheme.colorScheme.onSurface,
+                        boxColor = MaterialTheme.colorScheme.surfaceContainer,
                         icon = R.drawable.full_circle_24,
-                        iconColor = when(muscle.effort){
-                            Effort.LOW -> LowPriority
-                            Effort.MEDIUM -> MediumPriority
-                            Effort.HIGH -> HighPriority
+                        iconColor = when (muscle.effort) {
+                            Effort.LOW -> Color.Green
+                            Effort.MEDIUM -> Color.Yellow
+                            Effort.HIGH -> Color.Red
                         },
                         roundedCorner = 20
-
-                    ),
-                    modifier = Modifier
+                    )
                 )
 
                 Spacer(
                     modifier = Modifier.width(4.dp)
                 )
-
             }
         }
-
-
     }
 }
-
 
 @Preview
 @Composable
 fun MuscleGroupSectionPreview() {
 
-
     MuscleGroupSection(
         data = MuscleGroupSectionData(
-            title = "Musculos Principales",
+            title = "Músculos Principales",
             muscles = listOf(
                 Muscle(
-                    name = "Biceps",
+                    name = "Bíceps",
                     effort = Effort.HIGH
-                ), Muscle(
+                ),
+                Muscle(
                     name = "Core",
                     effort = Effort.MEDIUM
                 ),
@@ -98,9 +89,6 @@ fun MuscleGroupSectionPreview() {
                     effort = Effort.LOW
                 )
             )
-        ),
-        modifier = Modifier.background(
-            Color.Black
         )
     )
 }

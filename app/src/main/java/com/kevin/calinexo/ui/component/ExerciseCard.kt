@@ -14,19 +14,17 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kevin.calinexo.model.DifficultyLevel
-import com.kevin.calinexo.ui.theme.SecondaryColor
-import androidx.compose.material3.Text
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
-import com.kevin.calinexo.ui.theme.LettersBlackBackground
 import com.kevin.testapplication.R
 
 data class ExerciseCardData(
@@ -36,15 +34,17 @@ data class ExerciseCardData(
     val subtittleColor: Color
 )
 
-
 @Composable
-fun ExerciseCard(data: ExerciseCardData, modifier: Modifier = Modifier) {
+fun ExerciseCard(
+    data: ExerciseCardData,
+    modifier: Modifier = Modifier
+) {
 
     Row(
         modifier = modifier
             .fillMaxWidth()
             .background(
-                color = SecondaryColor,
+                color = MaterialTheme.colorScheme.surfaceContainerLow,
                 shape = RoundedCornerShape(20.dp)
             )
             .padding(10.dp),
@@ -57,30 +57,23 @@ fun ExerciseCard(data: ExerciseCardData, modifier: Modifier = Modifier) {
                 .clip(CircleShape),
             contentAlignment = Alignment.Center
         ) {
-
             Image(
-                modifier = Modifier
-                    .fillMaxSize(),
+                modifier = Modifier.fillMaxSize(),
                 painter = painterResource(data.image),
-                contentDescription = "Imagen",
+                contentDescription = data.tittle,
                 contentScale = ContentScale.Crop
             )
         }
 
-
-        Spacer(
-            modifier = Modifier
-                .width(10.dp)
-        )
-
+        Spacer(modifier = Modifier.width(10.dp))
 
         Column(
-            modifier = Modifier
-                .padding(vertical = 5.dp)
+            modifier = Modifier.padding(vertical = 5.dp)
         ) {
+
             Text(
                 text = data.tittle,
-                color = LettersBlackBackground,
+                color = MaterialTheme.colorScheme.onSurface,
                 style = MaterialTheme.typography.labelLarge
             )
 
@@ -92,7 +85,6 @@ fun ExerciseCard(data: ExerciseCardData, modifier: Modifier = Modifier) {
         }
     }
 }
-
 
 @Preview
 @Composable

@@ -11,14 +11,15 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.kevin.calinexo.ui.theme.TestApplicationTheme
+import com.kevin.calinexo.ui.theme.CalinexoTheme
+import com.kevin.calinexo.ui.theme.CalinexoTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            TestApplicationTheme {
+            CalinexoTheme() {
                 Scaffold( modifier = Modifier.fillMaxSize() ) { innerPadding ->
                     Greeting(
                         name = "Android",
@@ -46,7 +47,7 @@ fun ConcatParamText(leftText : String = "", rightText : String = ""){
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    TestApplicationTheme {
+    CalinexoTheme(){
         Greeting("Android")
     }
 }

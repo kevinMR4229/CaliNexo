@@ -9,7 +9,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -18,24 +20,22 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.kevin.calinexo.model.DifficultyLevel
 import com.kevin.calinexo.ui.component.ExerciseCard
 import com.kevin.calinexo.ui.component.ExerciseCardData
 import com.kevin.calinexo.ui.component.ExerciseFilters
 import com.kevin.calinexo.ui.component.ExerciseFiltersData
 import com.kevin.calinexo.ui.component.SearchBar
 import com.kevin.calinexo.ui.component.SearchBarData
-import com.kevin.calinexo.ui.theme.SecondaryColor
 import com.kevin.calinexo.ui.viewModel.ExerciseScreenVM
 import com.kevin.testapplication.R
-import androidx.compose.foundation.lazy.items
-import com.kevin.calinexo.model.DifficultyLevel
-import com.kevin.calinexo.ui.theme.HighPriority
-import com.kevin.calinexo.ui.theme.LowPriority
-import com.kevin.calinexo.ui.theme.MediumPriority
 
 
 @Composable
-fun ExerciseScreen(modifier: Modifier = Modifier, vm: ExerciseScreenVM = viewModel()) {
+fun ExerciseScreen(
+    modifier: Modifier = Modifier,
+    vm: ExerciseScreenVM = viewModel()
+) {
 
     LaunchedEffect(Unit) {
         vm.load()
@@ -48,6 +48,7 @@ fun ExerciseScreen(modifier: Modifier = Modifier, vm: ExerciseScreenVM = viewMod
         modifier = modifier
             .padding(horizontal = 20.dp)
     ) {
+
         //Barra de busqueda
 
         SearchBar(
@@ -55,7 +56,8 @@ fun ExerciseScreen(modifier: Modifier = Modifier, vm: ExerciseScreenVM = viewMod
                 icon = R.drawable.search,
                 text = state.value.filter,
                 onTextChange = vm::onFilterChange
-            ))
+            )
+        )
 
 
         Spacer(
@@ -73,10 +75,9 @@ fun ExerciseScreen(modifier: Modifier = Modifier, vm: ExerciseScreenVM = viewMod
             Row(
                 modifier = Modifier
                     .background(
-                        color = SecondaryColor,
+                        color = MaterialTheme.colorScheme.surfaceContainer,
                         shape = RoundedCornerShape(50.dp)
                     )
-
             ) {
 
                 ExerciseFilters(
@@ -100,6 +101,7 @@ fun ExerciseScreen(modifier: Modifier = Modifier, vm: ExerciseScreenVM = viewMod
         LazyColumn(
             modifier = Modifier.weight(1f)
         ) {
+
             items(state.value.exercises) { exercise ->
 
                 ExerciseCard(
@@ -107,11 +109,18 @@ fun ExerciseScreen(modifier: Modifier = Modifier, vm: ExerciseScreenVM = viewMod
                         tittle = exercise.name,
                         subTittle = exercise.difficulty,
                         image = exercise.image,
-                        subtittleColor = when(exercise.difficulty) {
-                            DifficultyLevel.BEGINNER -> LowPriority
-                            DifficultyLevel.INTERMEDIATE -> MediumPriority
-                            DifficultyLevel.ADVANCED -> HighPriority
-                            DifficultyLevel.PRO -> HighPriority
+                        subtittleColor = when (exercise.difficulty) {
+                            DifficultyLevel.BEGINNER ->
+                                MaterialTheme.colorScheme.tertiary
+
+                            DifficultyLevel.INTERMEDIATE ->
+                                MaterialTheme.colorScheme.secondary
+
+                            DifficultyLevel.ADVANCED ->
+                                MaterialTheme.colorScheme.error
+
+                            DifficultyLevel.PRO ->
+                                MaterialTheme.colorScheme.primary
                         }
                     )
                 )
@@ -122,12 +131,7 @@ fun ExerciseScreen(modifier: Modifier = Modifier, vm: ExerciseScreenVM = viewMod
             }
         }
     }
-
 }
-
-
-
-
 
 
 @Preview

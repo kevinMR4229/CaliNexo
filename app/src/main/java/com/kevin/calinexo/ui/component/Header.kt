@@ -12,9 +12,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
@@ -23,8 +23,6 @@ import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.kevin.calinexo.ui.theme.BackgroundColor
-import com.kevin.calinexo.ui.theme.SecondaryColor
 
 
 data class HeaderData(
@@ -33,59 +31,59 @@ data class HeaderData(
 )
 
 @Composable
-fun header(data: HeaderData, modifier: Modifier = Modifier) {
+fun header(
+    data: HeaderData,
+    modifier: Modifier = Modifier
+) {
 
-    Column() {
+    Column {
         Row(
             modifier = modifier
                 .fillMaxWidth()
-                .background(color = BackgroundColor)
+                .background(
+                    color = MaterialTheme.colorScheme.surface
+                )
                 .height(64.dp)
                 .padding(horizontal = 6.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Logo
+
             Image(
                 painter = painterResource(data.logo),
                 contentDescription = "Logo de la app",
-                modifier = modifier.size(52.dp)
+                modifier = Modifier.size(52.dp)
             )
 
-            //Espacio Pequeño
             Spacer(
                 modifier = Modifier.width(8.dp)
             )
 
-            // Nombre CaliNexo
             Text(
                 text = data.nombre,
-                color = Color.White,
+                color = MaterialTheme.colorScheme.onSurface,
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Bold,
                 letterSpacing = 0.5.sp
             )
 
-            //Espacio
             Spacer(
                 modifier = Modifier.weight(1f)
             )
 
-            // Icono de usuario
             Icon(
                 painter = painterResource(R.drawable.account_icon),
                 contentDescription = "Perfil",
-                tint = Color.White,
+                tint = MaterialTheme.colorScheme.onSurface,
                 modifier = Modifier.size(28.dp)
             )
         }
 
         HorizontalDivider(
             thickness = 1.dp,
-            color = Color.White.copy(alpha = 0.05f)
+            color = MaterialTheme.colorScheme.outlineVariant
+                .copy(alpha = 0.35f)
         )
-
     }
-
 }
 
 @Preview

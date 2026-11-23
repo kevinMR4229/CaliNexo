@@ -1,6 +1,5 @@
 package com.kevin.calinexo.ui.page
 
-
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
@@ -10,27 +9,29 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
-import androidx.compose.ui.tooling.preview.Preview
-import com.kevin.calinexo.ui.component.PageTitleData
-import com.kevin.calinexo.ui.component.pageTitle
-import com.kevin.testapplication.R
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.kevin.calinexo.ui.component.ButtonApp
 import com.kevin.calinexo.ui.component.ButtonData
 import com.kevin.calinexo.ui.component.ExerciseMediaCard
-import com.kevin.calinexo.ui.component.ExerciseMediaCarddata
+import com.kevin.calinexo.ui.component.ExerciseMediaCardData
 import com.kevin.calinexo.ui.component.InstructionStepZone
 import com.kevin.calinexo.ui.component.MuscleGroupSection
 import com.kevin.calinexo.ui.component.MuscleGroupSectionData
-import com.kevin.calinexo.ui.theme.LettersBlackBackground
-import com.kevin.calinexo.ui.theme.PrimaryColor
+import com.kevin.calinexo.ui.component.PageTitleData
+import com.kevin.calinexo.ui.component.pageTitle
 import com.kevin.calinexo.ui.viewModel.ExerciseDetailScreenVM
+import com.kevin.testapplication.R
 
 
 @Composable
-fun ExerciseDetailScreen(id: String, modifier: Modifier = Modifier, vm: ExerciseDetailScreenVM = viewModel()) {
+fun ExerciseDetailScreen(
+    id: String,
+    modifier: Modifier = Modifier,
+    vm: ExerciseDetailScreenVM = viewModel()
+) {
 
     LaunchedEffect(Unit) {
         vm.load(id)
@@ -41,13 +42,13 @@ fun ExerciseDetailScreen(id: String, modifier: Modifier = Modifier, vm: Exercise
     val exercise = state.value.exercise
 
 
-
     if (exercise != null) {
 
         Column(
             modifier = modifier
                 .padding(horizontal = 20.dp)
         ) {
+
             pageTitle(
                 data = PageTitleData(
                     pageTittle = exercise.name,
@@ -61,11 +62,9 @@ fun ExerciseDetailScreen(id: String, modifier: Modifier = Modifier, vm: Exercise
             )
 
             ExerciseMediaCard(
-                data = ExerciseMediaCarddata(
+                data = ExerciseMediaCardData(
                     image = exercise.image,
                     level = exercise.difficulty.displayName,
-                    time = 34,
-                    strengh = "Fuerza base"
                 )
             )
 
@@ -89,7 +88,7 @@ fun ExerciseDetailScreen(id: String, modifier: Modifier = Modifier, vm: Exercise
             Text(
                 modifier = Modifier,
                 text = "Como realizarlo",
-                color = LettersBlackBackground,
+                color = MaterialTheme.colorScheme.onSurface,
                 style = MaterialTheme.typography.bodyMedium
             )
 
@@ -109,15 +108,13 @@ fun ExerciseDetailScreen(id: String, modifier: Modifier = Modifier, vm: Exercise
             ButtonApp(
                 data = ButtonData(
                     text = "Entrar",
-                    textColor = LettersBlackBackground,
-                    backgroundColor = PrimaryColor,
                     endIcon = R.drawable.arrow_back
                 )
             )
         }
-
     }
 }
+
 
 @Preview
 @Composable

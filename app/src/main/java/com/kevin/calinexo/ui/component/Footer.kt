@@ -8,28 +8,31 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.kevin.calinexo.ui.theme.BackgroundColor
 import com.kevin.testapplication.R
 
 
 @Composable
 fun Footer(modifier: Modifier = Modifier) {
 
-    Column() {
+    Column {
         HorizontalDivider(
             thickness = 1.dp,
-            color = Color.White.copy(alpha = 0.05f)
+            color = MaterialTheme.colorScheme.outlineVariant
+                .copy(alpha = 0.35f)
         )
+
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(color = BackgroundColor)
+                .background(
+                    color = MaterialTheme.colorScheme.surface
+                )
                 .height(64.dp)
                 .padding(horizontal = 6.dp),
             verticalAlignment = Alignment.CenterVertically
@@ -37,12 +40,11 @@ fun Footer(modifier: Modifier = Modifier) {
 
             BottomNavItem(
                 data = BottomNavItemData(
-                icon = R.drawable.home,
-                iconColor = Color.White,
-                text = "Inicio",
-                selected = true,
-                onClick = {}
-            ))
+                    icon = R.drawable.home,
+                    text = "Inicio",
+                    selected = true,
+                    onClick = {}
+                ))
 
             Spacer(
                 modifier = Modifier.weight(1f)
@@ -50,12 +52,11 @@ fun Footer(modifier: Modifier = Modifier) {
 
             BottomNavItem(
                 data = BottomNavItemData(
-                icon = R.drawable.trending_up,
-                iconColor = Color.White,
-                text = "Progreso",
-                selected = true,
-                onClick = {}
-            ))
+                    icon = R.drawable.trending_up,
+                    text = "Progreso",
+                    selected = true,
+                    onClick = {}
+                ))
 
             Spacer(
                 modifier = Modifier.weight(1f)
@@ -63,12 +64,11 @@ fun Footer(modifier: Modifier = Modifier) {
 
             BottomNavItem(
                 data = BottomNavItemData(
-                icon = R.drawable.exercise,
-                iconColor = Color.White,
-                text = "Ejercicios",
-                selected = true,
-                onClick = {}
-            ))
+                    icon = R.drawable.exercise,
+                    text = "Ejercicios",
+                    selected = true,
+                    onClick = {}
+                ))
 
             Spacer(
                 modifier = Modifier.weight(1f)
@@ -76,12 +76,11 @@ fun Footer(modifier: Modifier = Modifier) {
 
             BottomNavItem(
                 data = BottomNavItemData(
-                icon = R.drawable.location_on,
-                iconColor = Color.White,
-                text = "Parques",
-                selected = true,
-                onClick = {}
-            ))
+                    icon = R.drawable.location_on,
+                    text = "Parques",
+                    selected = true,
+                    onClick = {}
+                ))
         }
     }
 

@@ -3,8 +3,6 @@ package com.kevin.calinexo.ui.component
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
-import androidx.compose.ui.graphics.Color
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -16,14 +14,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.kevin.calinexo.ui.theme.LettersBlackBackground
-import com.kevin.calinexo.ui.theme.SecondaryColor
-import com.kevin.testapplication.R
 
 data class InfoChipData(
     val text: String,
@@ -35,24 +29,28 @@ data class InfoChipData(
 )
 
 @Composable
-fun InfoChip(data: InfoChipData, modifier: Modifier = Modifier) {
+fun InfoChip(
+    data: InfoChipData,
+    modifier: Modifier = Modifier
+) {
 
-    Surface(  //creo el contenedor del texto
+    Surface(
         modifier = modifier,
         color = data.boxColor,
-        shape = RoundedCornerShape(data.roundedCorner)
+        shape = RoundedCornerShape(data.roundedCorner.dp)
     ) {
 
         Row(
-            modifier = Modifier
-                .padding(all = 5.dp),
+            modifier = Modifier.padding(5.dp),
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically
-        ){
-            if (data.icon != null){
+        ) {
+
+            if (data.icon != null) {
+
                 Icon(
                     painter = painterResource(data.icon),
-                    contentDescription = "icono",
+                    contentDescription = "Icono",
                     tint = data.iconColor,
                     modifier = Modifier.size(15.dp)
                 )
@@ -64,24 +62,20 @@ fun InfoChip(data: InfoChipData, modifier: Modifier = Modifier) {
                 text = data.text,
                 color = data.textColor,
                 style = MaterialTheme.typography.labelMedium
-
             )
         }
-
-
     }
 }
 
-
 @Preview
 @Composable
-fun infoChipPreview(){
-    InfoChip(data = InfoChipData(
-        text = "Bicep",
-        textColor = LettersBlackBackground,
-        boxColor = SecondaryColor,
-        icon = R.drawable.full_circle_24,
-        iconColor = Color.Red,
-        roundedCorner = 20
-    ))
+fun InfoChipPreview() {
+    InfoChip(
+        data = InfoChipData(
+            text = "Bíceps",
+            textColor = MaterialTheme.colorScheme.onSurface,
+            boxColor = MaterialTheme.colorScheme.surfaceContainer,
+            roundedCorner = 20
+        )
+    )
 }
