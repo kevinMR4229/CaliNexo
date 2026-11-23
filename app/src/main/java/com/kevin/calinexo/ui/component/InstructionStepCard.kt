@@ -19,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.kevin.calinexo.ui.theme.CalinexoTheme
 
 data class InstructionStepCardData(
     val stepNumber: Int,
@@ -47,7 +48,7 @@ fun InstructionStepCard(
             modifier = Modifier
                 .size(28.dp)
                 .background(
-                    color = MaterialTheme.colorScheme.primaryContainer,
+                    color = MaterialTheme.colorScheme.tertiary,
                     shape = CircleShape
                 ),
             contentAlignment = Alignment.Center
@@ -86,11 +87,14 @@ fun InstructionStepCard(
 @Preview
 @Composable
 fun InstructionStepCardPreview() {
-    InstructionStepCard(
-        data = InstructionStepCardData(
-            stepNumber = 1,
-            title = "Agarre y posición",
-            description = "Sujétate de la barra manteniendo una posición estable."
+    CalinexoTheme() {
+        InstructionStepCard(
+            data = InstructionStepCardData(
+                stepNumber = 1,
+                title = "Agarre y posición",
+                description = "Sujétate de la barra manteniendo una posición estable."
+            )
         )
-    )
+    }
+
 }
