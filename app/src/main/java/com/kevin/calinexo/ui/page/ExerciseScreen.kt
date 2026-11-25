@@ -39,6 +39,7 @@ import com.kevin.testapplication.R
 
 @Composable
 fun ExerciseScreen(
+    onCardClick: (String) -> Unit,
     modifier: Modifier = Modifier,
     vm: ExerciseScreenVM = viewModel()
 ) {
@@ -111,7 +112,9 @@ fun ExerciseScreen(
             items(state.value.exercises) { exercise ->
 
                 ExerciseCard(
+                    onCardClick = {},
                     data = ExerciseCardData(
+                        id = exercise.id,
                         tittle = exercise.name,
                         subTittle = exercise.difficulty,
                         image = exercise.image,
@@ -147,7 +150,9 @@ fun ExerciseScreenPreview() {
         Surface(
             color = MaterialTheme.colorScheme.background
         ){
-            ExerciseScreen()
+            ExerciseScreen(
+                onCardClick = {}
+            )
         }
 
     }

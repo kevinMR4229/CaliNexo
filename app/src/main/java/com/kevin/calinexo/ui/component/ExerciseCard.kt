@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -29,6 +30,7 @@ import com.kevin.calinexo.ui.theme.CalinexoTheme
 import com.kevin.testapplication.R
 
 data class ExerciseCardData(
+    val id: String,
     val tittle: String,
     val subTittle: DifficultyLevel,
     val image: Int,
@@ -37,11 +39,12 @@ data class ExerciseCardData(
 
 @Composable
 fun ExerciseCard(
+    onCardClick: (String) -> Unit = {},
     data: ExerciseCardData,
     modifier: Modifier = Modifier
 ) {
 
-    Row(
+    Card(
         modifier = modifier
             .fillMaxWidth()
             .background(
@@ -49,42 +52,48 @@ fun ExerciseCard(
                 shape = RoundedCornerShape(20.dp)
             )
             .padding(10.dp),
-        verticalAlignment = Alignment.CenterVertically
+        onClick = {onCardClick(data.id)}
     ) {
+        Row(
 
-        Box(
-            modifier = Modifier
-                .size(65.dp)
-                .clip(CircleShape),
-            contentAlignment = Alignment.Center
-        ) {
-            Image(
-                modifier = Modifier.fillMaxSize(),
-                painter = painterResource(data.image),
-                contentDescription = data.tittle,
-                contentScale = ContentScale.Crop
-            )
-        }
-
-        Spacer(modifier = Modifier.width(10.dp))
-
-        Column(
-            modifier = Modifier.padding(vertical = 5.dp)
+            verticalAlignment = Alignment.CenterVertically
         ) {
 
-            Text(
-                text = data.tittle,
-                color = MaterialTheme.colorScheme.onSurface,
-                style = MaterialTheme.typography.labelLarge
-            )
+            Box(
+                modifier = Modifier
+                    .size(65.dp)
+                    .clip(CircleShape),
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    modifier = Modifier.fillMaxSize(),
+                    painter = painterResource(data.image),
+                    contentDescription = data.tittle,
+                    contentScale = ContentScale.Crop
+                )
+            }
 
-            Text(
-                text = data.subTittle.displayName,
-                color = data.subtittleColor,
-                style = MaterialTheme.typography.labelSmall
-            )
+            Spacer(modifier = Modifier.width(10.dp))
+
+            Column(
+                modifier = Modifier.padding(vertical = 5.dp)
+            ) {
+
+                Text(
+                    text = data.tittle,
+                    color = MaterialTheme.colorScheme.onSurface,
+                    style = MaterialTheme.typography.labelLarge
+                )
+
+                Text(
+                    text = data.subTittle.displayName,
+                    color = data.subtittleColor,
+                    style = MaterialTheme.typography.labelSmall
+                )
+            }
         }
     }
+
 }
 
 @Preview
@@ -93,6 +102,7 @@ fun ExerciseCardPreview() {
     CalinexoTheme() {
         ExerciseCard(
             data = ExerciseCardData(
+                id = "Push_up",
                 tittle = "Dominadas",
                 subTittle = DifficultyLevel.INTERMEDIATE,
                 image = R.drawable.imagen_dominadas_prueba,
