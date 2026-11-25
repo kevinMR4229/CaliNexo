@@ -34,7 +34,7 @@ class ExerciseScreenVM : ViewModel() {
         _uiState.update {
             it.copy(
                 filter = filter,
-                exercises = Seeder.getExercisesFilterName(filter)
+                exercises = Seeder.getExercisesFilterNameLevel(filter, _uiState.value.selectedLevel)
             )
         }
 
@@ -45,7 +45,7 @@ class ExerciseScreenVM : ViewModel() {
         _uiState.update {
             it.copy(
                 selectedLevel = level,
-                exercises = Seeder.getExercisesFilterLevel(level)
+                exercises = Seeder.getExercisesFilterNameLevel(_uiState.value.filter, level)
             )
         }
     }

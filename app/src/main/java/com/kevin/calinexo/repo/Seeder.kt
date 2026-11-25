@@ -95,15 +95,9 @@ object Seeder {
     }
 
 
-    fun getExercisesFilterName(filter: String): List<Exercise>{
+    fun getExercisesFilterNameLevel(filter: String, level: DifficultyLevel): List<Exercise> {
         return exercises.filter { exercise ->
-                exercise.name.contains(filter, ignoreCase = true)
-            }
-    }
-
-    fun getExercisesFilterLevel(level: DifficultyLevel): List<Exercise>{
-        return exercises.filter { exercise ->
-            exercise.difficulty == level
+            exercise.name.contains(filter, ignoreCase = true) && exercise.difficulty == level
         }
     }
 
