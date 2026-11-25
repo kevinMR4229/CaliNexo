@@ -18,7 +18,7 @@ import com.kevin.testapplication.R
 
 
 @Composable
-fun Footer(modifier: Modifier = Modifier) {
+fun MyBottomBar(modifier: Modifier = Modifier) {
 
     Column {
         HorizontalDivider(
@@ -89,6 +89,6 @@ fun Footer(modifier: Modifier = Modifier) {
 
 @Preview
 @Composable
-fun FooterPreview() {
-    Footer()
+fun MyBottomBarPreview() {
+    MyBottomBar()
 }

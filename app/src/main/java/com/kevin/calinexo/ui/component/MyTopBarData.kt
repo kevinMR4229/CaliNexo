@@ -26,14 +26,14 @@ import androidx.compose.ui.unit.dp
 import com.kevin.calinexo.ui.theme.CalinexoTheme
 
 
-data class HeaderData(
+data class MyTopBarData(
     val logo: Int,
     val nombre: String
 )
 
 @Composable
-fun header(
-    data: HeaderData,
+fun MyTopBar(
+    data: MyTopBarData,
     modifier: Modifier = Modifier
 ) {
 
@@ -91,8 +91,8 @@ fun header(
 @Composable
 fun headerPreview() {
     CalinexoTheme() {
-        header(
-            data = HeaderData(
+        MyTopBar(
+            data = MyTopBarData(
                 logo = R.drawable.logo_mejorado,
                 nombre = "CaliNexo"
             ),
