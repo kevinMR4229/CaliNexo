@@ -14,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.kevin.calinexo.ui.theme.CalinexoTheme
 import com.kevin.testapplication.R
 
 
@@ -90,5 +91,8 @@ fun MyBottomBar(modifier: Modifier = Modifier) {
 @Preview
 @Composable
 fun MyBottomBarPreview() {
-    MyBottomBar()
+    CalinexoTheme() {
+        MyBottomBar()
+    }
+
 }

@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.kevin.calinexo.ui.theme.CalinexoTheme
 import com.kevin.testapplication.R
 
 data class BottomNavItemData(
@@ -57,12 +58,15 @@ fun BottomNavItem(
 @Preview
 @Composable
 fun BottomNavItemPreview() {
-    BottomNavItem(
-        data = BottomNavItemData(
-            icon = R.drawable.home,
-            text = "Inicio",
-            selected = true,
-            onClick = {}
+    CalinexoTheme() {
+        BottomNavItem(
+            data = BottomNavItemData(
+                icon = R.drawable.home,
+                text = "Inicio",
+                selected = true,
+                onClick = {}
+            )
         )
-    )
+    }
+
 }

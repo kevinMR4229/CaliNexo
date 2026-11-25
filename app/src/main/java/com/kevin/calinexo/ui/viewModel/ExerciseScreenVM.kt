@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.update
 
 data class ExerciseScreenUIState(
     val filter: String = "",
-    val levels: List<DifficultyLevel> = emptyList(),
+    val levels: List<DifficultyLevel> = DifficultyLevel.entries,
     val selectedLevel: DifficultyLevel = DifficultyLevel.BEGINNER,
     val exercises: List<Exercise> = emptyList()
 )
@@ -23,10 +23,9 @@ class ExerciseScreenVM : ViewModel() {
     fun load() {
 
         _uiState.value = _uiState.value.copy(
-            levels = DifficultyLevel.entries,
             exercises = Seeder.getAllExercises()
                 .filter { exercise ->
-                    exercise.difficulty == DifficultyLevel.BEGINNER
+                    exercise.difficulty == _uiState.value.selectedLevel
                 }
         )
     }
