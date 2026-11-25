@@ -4,6 +4,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -53,9 +55,8 @@ fun ExerciseDetailScreen(
 
         Column(
             modifier = modifier
-                .padding(horizontal = 20.dp)
+                .padding(horizontal = 15.dp)
         ) {
-
             pageTitle(
                 data = PageTitleData(
                     pageTittle = exercise.name,
@@ -67,72 +68,82 @@ fun ExerciseDetailScreen(
                 modifier = Modifier
                     .padding(bottom = 5.dp)
             )
+            Column(
+                modifier = modifier
+                    .padding(horizontal = 15.dp)
+                    .verticalScroll(rememberScrollState())
+            ) {
 
-            ExerciseMediaCard(
-                data = ExerciseMediaCardData(
-                    image = exercise.image,
-                    level = exercise.difficulty.displayName,
-                    chipColor = when (exercise.difficulty) {
-                        DifficultyLevel.BEGINNER ->
-                            BeginnerLevel
 
-                        DifficultyLevel.INTERMEDIATE ->
-                            IntermediateLevel
 
-                        DifficultyLevel.ADVANCED ->
-                            AdvancedLevel
+                ExerciseMediaCard(
+                    data = ExerciseMediaCardData(
+                        image = exercise.image,
+                        level = exercise.difficulty.displayName,
+                        chipColor = when (exercise.difficulty) {
+                            DifficultyLevel.BEGINNER ->
+                                BeginnerLevel
 
-                        DifficultyLevel.PRO ->
-                            ProLevel
-                    }
+                            DifficultyLevel.INTERMEDIATE ->
+                                IntermediateLevel
+
+                            DifficultyLevel.ADVANCED ->
+                                AdvancedLevel
+
+                            DifficultyLevel.PRO ->
+                                ProLevel
+                        }
+                    )
                 )
-            )
 
-            Spacer(
-                modifier = Modifier.height(16.dp)
-            )
-
-            MuscleGroupSection(
-                data = MuscleGroupSectionData(
-                    title = "Musculos Principales",
-                    muscles = exercise.muscles
-                ),
-                modifier = Modifier
-                    .padding(top = 5.dp)
-            )
-
-            Spacer(
-                modifier = Modifier.height(20.dp)
-            )
-
-            Text(
-                modifier = Modifier,
-                text = "Como realizarlo",
-                color = MaterialTheme.colorScheme.onSurface,
-                style = MaterialTheme.typography.bodyMedium
-            )
-
-            Spacer(
-                modifier = Modifier.height(16.dp)
-            )
-
-            InstructionStepZone(
-                data = exercise.instructions
-            )
-
-
-            Spacer(
-                modifier = Modifier.height(16.dp)
-            )
-
-            ButtonApp(
-                data = ButtonData(
-                    text = "Entrar",
-                    endIcon = R.drawable.arrow_back
+                Spacer(
+                    modifier = Modifier.height(16.dp)
                 )
-            )
+
+                MuscleGroupSection(
+                    data = MuscleGroupSectionData(
+                        title = "Musculos Principales",
+                        muscles = exercise.muscles
+                    ),
+                    modifier = Modifier
+                        .padding(top = 5.dp)
+                )
+
+                Spacer(
+                    modifier = Modifier.height(20.dp)
+                )
+
+                Text(
+                    modifier = Modifier,
+                    text = "Como realizarlo",
+                    color = MaterialTheme.colorScheme.onSurface,
+                    style = MaterialTheme.typography.bodyMedium
+                )
+
+                Spacer(
+                    modifier = Modifier.height(16.dp)
+                )
+
+                InstructionStepZone(
+                    data = exercise.instructions
+                )
+
+
+                Spacer(
+                    modifier = Modifier.height(16.dp)
+                )
+
+                ButtonApp(
+                    data = ButtonData(
+                        text = "Entrar",
+                        endIcon = R.drawable.arrow_back
+                    )
+                )
+            }
         }
     }
+
+
 }
 
 

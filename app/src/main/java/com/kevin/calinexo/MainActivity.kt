@@ -12,8 +12,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-
-            MyScaffold(ExerciseDetailScreen("push_up"))
+            MyScaffold {
+                ExerciseDetailScreen("push_up")
+            }
         }
     }
 }
