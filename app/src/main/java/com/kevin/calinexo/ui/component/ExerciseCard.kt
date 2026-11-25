@@ -2,6 +2,7 @@ package com.kevin.calinexo.ui.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -44,53 +45,49 @@ fun ExerciseCard(
     modifier: Modifier = Modifier
 ) {
 
-    Card(
+    Row(
         modifier = modifier
             .fillMaxWidth()
             .background(
                 color = MaterialTheme.colorScheme.surfaceContainerLow,
                 shape = RoundedCornerShape(20.dp)
             )
-            .padding(10.dp),
-        onClick = {onCardClick(data.id)}
+            .padding(10.dp)
+            .clickable(onClick = {onCardClick(data.id)}),
+        verticalAlignment = Alignment.CenterVertically
     ) {
-        Row(
 
-            verticalAlignment = Alignment.CenterVertically
+        Box(
+            modifier = Modifier
+                .size(65.dp)
+                .clip(CircleShape),
+            contentAlignment = Alignment.Center
+        ) {
+            Image(
+                modifier = Modifier.fillMaxSize(),
+                painter = painterResource(data.image),
+                contentDescription = data.tittle,
+                contentScale = ContentScale.Crop
+            )
+        }
+
+        Spacer(modifier = Modifier.width(10.dp))
+
+        Column(
+            modifier = Modifier.padding(vertical = 5.dp)
         ) {
 
-            Box(
-                modifier = Modifier
-                    .size(65.dp)
-                    .clip(CircleShape),
-                contentAlignment = Alignment.Center
-            ) {
-                Image(
-                    modifier = Modifier.fillMaxSize(),
-                    painter = painterResource(data.image),
-                    contentDescription = data.tittle,
-                    contentScale = ContentScale.Crop
-                )
-            }
+            Text(
+                text = data.tittle,
+                color = MaterialTheme.colorScheme.onSurface,
+                style = MaterialTheme.typography.labelLarge
+            )
 
-            Spacer(modifier = Modifier.width(10.dp))
-
-            Column(
-                modifier = Modifier.padding(vertical = 5.dp)
-            ) {
-
-                Text(
-                    text = data.tittle,
-                    color = MaterialTheme.colorScheme.onSurface,
-                    style = MaterialTheme.typography.labelLarge
-                )
-
-                Text(
-                    text = data.subTittle.displayName,
-                    color = data.subtittleColor,
-                    style = MaterialTheme.typography.labelSmall
-                )
-            }
+            Text(
+                text = data.subTittle.displayName,
+                color = data.subtittleColor,
+                style = MaterialTheme.typography.labelSmall
+            )
         }
     }
 

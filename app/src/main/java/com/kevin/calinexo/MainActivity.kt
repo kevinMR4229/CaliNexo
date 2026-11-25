@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.padding
+import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -32,15 +34,17 @@ class MainActivity : ComponentActivity() {
                     startDestination = ListPath
                 ){
                     composable <ListPath>{
-                        //ExerciseScreen()
+                        ExerciseScreen(onCardClick = {
+                            myNavController.navigate(DetailPath(it))
+                        })
                     }
 
                     composable <DetailPath>{
                         val detailPath = it.toRoute<DetailPath>()
-                        ExerciseDetailScreen(detailPath.id)
+                        ExerciseDetailScreen(
+                            detailPath.id)
                     }
                 }
-                ExerciseDetailScreen("push_up")
             }
         }
     }

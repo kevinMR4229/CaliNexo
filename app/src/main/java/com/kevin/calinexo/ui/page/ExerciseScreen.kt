@@ -112,7 +112,7 @@ fun ExerciseScreen(
             items(state.value.exercises) { exercise ->
 
                 ExerciseCard(
-                    onCardClick = {},
+                    onCardClick = onCardClick,
                     data = ExerciseCardData(
                         id = exercise.id,
                         tittle = exercise.name,
