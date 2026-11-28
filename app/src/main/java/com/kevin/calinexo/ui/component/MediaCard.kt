@@ -17,17 +17,18 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.kevin.calinexo.ui.theme.CalinexoTheme
 import com.kevin.testapplication.R
 
-data class ExerciseMediaCardData(
+data class MediaCardData(
     val image: Int,
     val level: String,
     val chipColor: Color
 )
 
 @Composable
-fun ExerciseMediaCard(
-    data: ExerciseMediaCardData,
+fun MediaCard(
+    data: MediaCardData,
     modifier: Modifier = Modifier
 ) {
 
@@ -61,12 +62,16 @@ fun ExerciseMediaCard(
 
 @Preview
 @Composable
-fun ExerciseMediaCardPreview() {
-    ExerciseMediaCard(
-        data = ExerciseMediaCardData(
-            image = R.drawable.imagen_dominadas_prueba,
-            level = "Intermedio",
-            chipColor = Color.Red
+fun MediaCardPreview() {
+
+    CalinexoTheme() {
+        MediaCard(
+            data = MediaCardData(
+                image = R.drawable.imagen_dominadas_prueba,
+                level = "Intermedio",
+                chipColor = Color.Red
+            )
         )
-    )
+    }
+
 }

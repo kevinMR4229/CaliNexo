@@ -17,8 +17,8 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.kevin.calinexo.ui.component.ButtonApp
 import com.kevin.calinexo.ui.component.ButtonData
-import com.kevin.calinexo.ui.component.ExerciseMediaCard
-import com.kevin.calinexo.ui.component.ExerciseMediaCardData
+import com.kevin.calinexo.ui.component.MediaCard
+import com.kevin.calinexo.ui.component.MediaCardData
 import com.kevin.calinexo.ui.component.InstructionStepZone
 import com.kevin.calinexo.ui.component.MuscleGroupSection
 import com.kevin.calinexo.ui.component.MuscleGroupSectionData
@@ -76,8 +76,8 @@ fun ExerciseDetailScreen(
 
 
 
-                ExerciseMediaCard(
-                    data = ExerciseMediaCardData(
+                MediaCard(
+                    data = MediaCardData(
                         image = exercise.image,
                         level = exercise.difficulty.displayName,
                         chipColor = when (exercise.difficulty) {

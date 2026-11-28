@@ -22,10 +22,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.kevin.calinexo.model.DifficultyLevel
-import com.kevin.calinexo.ui.component.ExerciseCard
-import com.kevin.calinexo.ui.component.ExerciseCardData
-import com.kevin.calinexo.ui.component.ExerciseFilters
-import com.kevin.calinexo.ui.component.ExerciseFiltersData
+import com.kevin.calinexo.ui.component.HorizontalCard
+import com.kevin.calinexo.ui.component.HorizontalCardData
+import com.kevin.calinexo.ui.component.Filters
+import com.kevin.calinexo.ui.component.FiltersData
 import com.kevin.calinexo.ui.component.SearchBar
 import com.kevin.calinexo.ui.component.SearchBarData
 import com.kevin.calinexo.ui.theme.AdvancedLevel
@@ -87,8 +87,8 @@ fun ExerciseScreen(
                     )
             ) {
 
-                ExerciseFilters(
-                    data = ExerciseFiltersData(
+                Filters(
+                    data = FiltersData(
                         levels = state.value.levels,
                         selectedLevel = state.value.selectedLevel,
                         onLevelSelected = vm::onLevelSelected
@@ -111,9 +111,9 @@ fun ExerciseScreen(
 
             items(state.value.exercises) { exercise ->
 
-                ExerciseCard(
+                HorizontalCard(
                     onCardClick = onCardClick,
-                    data = ExerciseCardData(
+                    data = HorizontalCardData(
                         id = exercise.id,
                         tittle = exercise.name,
                         subTittle = exercise.difficulty,

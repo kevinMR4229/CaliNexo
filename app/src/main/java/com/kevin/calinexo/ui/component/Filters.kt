@@ -10,15 +10,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kevin.calinexo.model.DifficultyLevel
 
-data class ExerciseFiltersData(
+data class FiltersData(
     val levels: List<DifficultyLevel>,
     val selectedLevel: DifficultyLevel,
     val onLevelSelected: (DifficultyLevel) -> Unit
 )
 
 @Composable
-fun ExerciseFilters(
-    data: ExerciseFiltersData,
+fun Filters(
+    data: FiltersData,
     modifier: Modifier = Modifier
 ) {
 
@@ -46,10 +46,10 @@ fun ExerciseFilters(
 
 @Preview
 @Composable
-fun ExerciseFiltersPreview() {
+fun FiltersPreview() {
 
-    ExerciseFilters(
-        data = ExerciseFiltersData(
+    Filters(
+        data = FiltersData(
             levels = DifficultyLevel.entries,
             selectedLevel = DifficultyLevel.BEGINNER,
             onLevelSelected = {}

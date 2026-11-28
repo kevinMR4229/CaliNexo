@@ -14,7 +14,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -30,7 +29,7 @@ import com.kevin.calinexo.model.DifficultyLevel
 import com.kevin.calinexo.ui.theme.CalinexoTheme
 import com.kevin.testapplication.R
 
-data class ExerciseCardData(
+data class HorizontalCardData(
     val id: String,
     val tittle: String,
     val subTittle: DifficultyLevel,
@@ -39,9 +38,9 @@ data class ExerciseCardData(
 )
 
 @Composable
-fun ExerciseCard(
+fun HorizontalCard(
     onCardClick: (String) -> Unit = {},
-    data: ExerciseCardData,
+    data: HorizontalCardData,
     modifier: Modifier = Modifier
 ) {
 
@@ -95,10 +94,10 @@ fun ExerciseCard(
 
 @Preview
 @Composable
-fun ExerciseCardPreview() {
+fun HorizontalCardPreview() {
     CalinexoTheme() {
-        ExerciseCard(
-            data = ExerciseCardData(
+        HorizontalCard(
+            data = HorizontalCardData(
                 id = "Push_up",
                 tittle = "Dominadas",
                 subTittle = DifficultyLevel.INTERMEDIATE,
